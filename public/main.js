@@ -1,1 +1,1 @@
-import './fromOtherFile.js';
+import './test/fromOtherFile.js';
