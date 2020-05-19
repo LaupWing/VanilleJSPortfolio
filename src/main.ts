@@ -1,1 +1,1 @@
-import './fromOtherFile.ts';
+import './fromOtherFile'
