@@ -1,0 +1,1 @@
+import './fromOtherFile.ts';
