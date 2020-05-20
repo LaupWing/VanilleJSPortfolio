@@ -6,3 +6,13 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body{
+    font-family: var(--main-font);
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
