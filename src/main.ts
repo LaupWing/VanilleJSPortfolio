@@ -1,1 +1,2 @@
-import './test/fromOtherFile.js'
+import './test/fromOtherFile.js';
+console.log('Test');
