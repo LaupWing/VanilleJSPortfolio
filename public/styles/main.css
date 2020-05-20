@@ -1,3 +1,5 @@
+@import url('./clean/global.css');
+
 :root{
     --main-font: 'Montserrat', sans-serif;
 }
