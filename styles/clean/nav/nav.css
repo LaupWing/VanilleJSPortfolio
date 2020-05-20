@@ -1,6 +1,6 @@
 #clean nav{
     display: flex;
-    padding: 50px 0;
+    padding-top: 50px;
     justify-content: space-between;
     width: 60%;
     align-items: flex-start;
@@ -8,16 +8,16 @@
 #clean nav h1{
     display: flex;
     flex-direction: column;
-    font-weight: normal;
     text-align: justify;
     align-items: center;
     border: solid 1px black;
     border-left: none;
     border-right: none;
-    font-size: 1rem;
+    font-size: .8rem;
 }
 
 #clean nav li{
+    font-size: .9rem;
     margin-bottom: 20px;
     text-transform: uppercase;
     cursor: pointer;
