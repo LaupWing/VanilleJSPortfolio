@@ -11,15 +11,3 @@
     display: flex;
 
 }
-
-#clean section{
-    width: 70%;
-    align-self: flex-end;
-}
-#clean section.projects img{
-    width: 100%;
-}
-#clean section.projects h2{
-    margin: 80px 20px;
-    font-size: 2rem;
-}
