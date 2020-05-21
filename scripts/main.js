@@ -12,4 +12,29 @@ function setLetterSpacingLogo() {
         }
     });
 }
-window.addEventListener('load', setLetterSpacingLogo);
+function navigations() {
+    var allLinks = document.querySelectorAll('#clean nav a');
+    allLinks.forEach(function (a) {
+        console.log(a);
+        a.addEventListener('click', function (e) {
+            e.preventDefault();
+            var link = e.target.href;
+            var state = {
+                id: link
+            };
+            history.pushState(state, '', link);
+            var popStateEvent = new PopStateEvent('popstate', { state: state });
+            dispatchEvent(popStateEvent);
+        });
+    });
+}
+function init() {
+    setLetterSpacingLogo();
+    navigations();
+}
+function changeUrl() {
+    console.log(history);
+    console.log('chagnes?');
+}
+window.addEventListener('load', init);
+window.addEventListener('popstate', changeUrl);
