@@ -5,7 +5,6 @@ export default class Route {
         this.defaultRoute = defaultRoute;
     }
     isActive(hashedPath) {
-        console.log(hashedPath, this.name);
         return hashedPath.substr(1).replace('#', '') === this.name;
     }
 }

@@ -5,8 +5,7 @@ export default class Route{
         public defaultRoute: boolean = false,
     ){
     }
-    isActive(hashedPath: string):boolean{ 
-        console.log(hashedPath, this.name) 
+    isActive(hashedPath: string):boolean{
         return hashedPath.substr(1).replace('#', '') === this.name;
     }
 }
