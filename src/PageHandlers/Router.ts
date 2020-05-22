@@ -28,10 +28,6 @@ export default class Router{
     async fetchHTML(htmlName:string){
         const res = await fetch(`../../views/${htmlName}`);
         const text = await res.text();
-        const doc = new DOMParser().parseFromString(text, "text/xml");
-        console.log(text);
-        console.log(doc);
-        // const body = await res.body.text()!;
-        // console.log(body);
+        this.root.innerHTML = text;
     }
 }

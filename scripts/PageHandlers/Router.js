@@ -34,11 +34,7 @@ export default class Router {
         return __awaiter(this, void 0, void 0, function* () {
             const res = yield fetch(`../../views/${htmlName}`);
             const text = yield res.text();
-            const doc = new DOMParser().parseFromString(text, "text/xml");
-            console.log(text);
-            console.log(doc);
-            // const body = await res.body.text()!;
-            // console.log(body);
+            this.root.innerHTML = text;
         });
     }
 }
