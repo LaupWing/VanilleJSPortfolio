@@ -41,7 +41,7 @@ function changeUrl(){
     console.log(history)
     console.log('chagnes?')
 }
-console.log(location.origin);
+
 window.history.replaceState({id: '/'}, '', location.origin);
 window.addEventListener('load', init);
 window.addEventListener('popstate', changeUrl);
