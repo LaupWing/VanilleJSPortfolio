@@ -1,3 +1,5 @@
+import Router from './PageHandlers/Router';
+import Route from './PageHandlers/Route';
 function setLetterSpacingLogo():void{
     const logo = document.querySelector('#clean #logo') as HTMLHeadingElement;
     const spans = document.querySelectorAll('#clean #logo span') as NodeListOf<HTMLSpanElement>;
@@ -12,36 +14,36 @@ function setLetterSpacingLogo():void{
     })
 }
 
-function navigations():void{
-    const allLinks = document.querySelectorAll('#clean nav a') as NodeListOf<HTMLLinkElement>;
+// function navigations():void{
+//     const allLinks = document.querySelectorAll('#clean nav a') as NodeListOf<HTMLLinkElement>;
 
-    allLinks.forEach(a=>{
-        console.log(a);
-        a.addEventListener('click', (e)=>{
-            e.preventDefault();
-            const link:string = (<HTMLLinkElement>e.target).href!;
-            const state = {
-                id: link
-            };
-            history.pushState(state, '', link);
-            const popStateEvent = new PopStateEvent('popstate', { state: state });
-            dispatchEvent(popStateEvent);
-        })
-    })
-}
+//     allLinks.forEach(a=>{
+//         console.log(a);
+//         a.addEventListener('click', (e)=>{
+//             e.preventDefault();
+//             const link:string = (<HTMLLinkElement>e.target).href!;
+//             const state = {
+//                 id: link
+//             };
+//             history.pushState(state, '', link);
+//             const popStateEvent = new PopStateEvent('popstate', { state: state });
+//             dispatchEvent(popStateEvent);
+//         })
+//     })
+// }
 
 
 function init():void{
-    console.log(history)
     setLetterSpacingLogo();
-    navigations();
+    // navigations();
+    const router = new Router([
+        new Route('home', 'home.html', true),
+    ])
 }
 
-function changeUrl(){
-    console.log(history)
-    console.log('chagnes?')
-}
+// function changeUrl(){
+//     console.log(history)
+//     console.log('chagnes?')
+// }
 
-window.history.replaceState({id: '/'}, '', location.origin);
 window.addEventListener('load', init);
-window.addEventListener('popstate', changeUrl);

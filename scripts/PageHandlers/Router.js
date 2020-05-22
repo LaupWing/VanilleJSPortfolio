@@ -1,12 +1,16 @@
-var Route = /** @class */ (function () {
-    function Route(name, htmlName, defaultRoute) {
-        this.name = name;
-        this.htmlName = htmlName;
-        this.defaultRoute = defaultRoute;
+var Router = /** @class */ (function () {
+    function Router(routes) {
+        var _this = this;
+        this.root = document.getElementById('app');
+        this.routes = routes;
+        window.addEventListener('hashchange', function (e) {
+            _this.hashChanged();
+        });
+        this.hashChanged();
     }
-    Route.prototype.router = function (hashedPath) {
-        return hashedPath.replace('#', '') === this.name;
+    Router.prototype.hashChanged = function () {
+        console.log(window.location.hash);
     };
-    return Route;
+    return Router;
 }());
-export default Route;
+export default Router;

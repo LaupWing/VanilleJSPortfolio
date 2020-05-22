@@ -1,4 +1,5 @@
-"use strict";
+import Router from './PageHandlers/Router';
+import Route from './PageHandlers/Route';
 function setLetterSpacingLogo() {
     var logo = document.querySelector('#clean #logo');
     var spans = document.querySelectorAll('#clean #logo span');
@@ -12,31 +13,31 @@ function setLetterSpacingLogo() {
         }
     });
 }
-function navigations() {
-    var allLinks = document.querySelectorAll('#clean nav a');
-    allLinks.forEach(function (a) {
-        console.log(a);
-        a.addEventListener('click', function (e) {
-            e.preventDefault();
-            var link = e.target.href;
-            var state = {
-                id: link
-            };
-            history.pushState(state, '', link);
-            var popStateEvent = new PopStateEvent('popstate', { state: state });
-            dispatchEvent(popStateEvent);
-        });
-    });
-}
+// function navigations():void{
+//     const allLinks = document.querySelectorAll('#clean nav a') as NodeListOf<HTMLLinkElement>;
+//     allLinks.forEach(a=>{
+//         console.log(a);
+//         a.addEventListener('click', (e)=>{
+//             e.preventDefault();
+//             const link:string = (<HTMLLinkElement>e.target).href!;
+//             const state = {
+//                 id: link
+//             };
+//             history.pushState(state, '', link);
+//             const popStateEvent = new PopStateEvent('popstate', { state: state });
+//             dispatchEvent(popStateEvent);
+//         })
+//     })
+// }
 function init() {
-    console.log(history);
     setLetterSpacingLogo();
-    navigations();
+    // navigations();
+    var router = new Router([
+        new Route('home', 'home.html', true),
+    ]);
 }
-function changeUrl() {
-    console.log(history);
-    console.log('chagnes?');
-}
-window.history.replaceState({ id: '/' }, '', location.origin);
+// function changeUrl(){
+//     console.log(history)
+//     console.log('chagnes?')
+// }
 window.addEventListener('load', init);
-window.addEventListener('popstate', changeUrl);
