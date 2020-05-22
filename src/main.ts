@@ -1,5 +1,6 @@
 import Router from './PageHandlers/Router';
 import Route from './PageHandlers/Route';
+
 function setLetterSpacingLogo():void{
     const logo = document.querySelector('#clean #logo') as HTMLHeadingElement;
     const spans = document.querySelectorAll('#clean #logo span') as NodeListOf<HTMLSpanElement>;
@@ -37,6 +38,7 @@ function init():void{
     setLetterSpacingLogo();
     // navigations();
     const router = new Router([
+        new Route('home', 'home.html', true),
         new Route('home', 'home.html', true),
     ])
 }

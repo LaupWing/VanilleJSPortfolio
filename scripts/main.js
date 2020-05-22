@@ -34,6 +34,7 @@ function init() {
     // navigations();
     var router = new Router([
         new Route('home', 'home.html', true),
+        new Route('home', 'home.html', true),
     ]);
 }
 // function changeUrl(){

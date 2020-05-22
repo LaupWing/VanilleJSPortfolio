@@ -2,9 +2,9 @@ import Route from './Route.js';
 
 export default class Router{
     root:HTMLDivElement;
-    routes:[Route];
+    routes:Route[];
 
-    constructor(routes:[Route]){
+    constructor(routes:Route[]){
         this.root = document.getElementById('app') as HTMLDivElement;
         this.routes = routes;
         window.addEventListener('hashchange', (e)=>{
