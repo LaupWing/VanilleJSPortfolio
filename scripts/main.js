@@ -1,15 +1,15 @@
-import Router from './PageHandlers/Router';
-import Route from './PageHandlers/Route';
+import Router from './PageHandlers/Router.js';
+import Route from './PageHandlers/Route.js';
 function setLetterSpacingLogo() {
-    var logo = document.querySelector('#clean #logo');
-    var spans = document.querySelectorAll('#clean #logo span');
-    var logoWidth = logo.offsetWidth;
-    spans.forEach(function (span) {
+    const logo = document.querySelector('#clean #logo');
+    const spans = document.querySelectorAll('#clean #logo span');
+    const logoWidth = logo.offsetWidth;
+    spans.forEach(span => {
         var _a;
-        var diffrence = logoWidth - span.offsetWidth;
-        var letters = (_a = span.textContent) === null || _a === void 0 ? void 0 : _a.length;
+        const diffrence = logoWidth - span.offsetWidth;
+        const letters = (_a = span.textContent) === null || _a === void 0 ? void 0 : _a.length;
         if (diffrence > 0) {
-            span.style.letterSpacing = diffrence / letters + "px";
+            span.style.letterSpacing = `${diffrence / letters}px`;
         }
     });
 }
@@ -31,10 +31,9 @@ function setLetterSpacingLogo() {
 // }
 function init() {
     setLetterSpacingLogo();
-    // navigations();
-    var router = new Router([
+    new Router([
         new Route('home', 'home.html', true),
-        new Route('home', 'home.html', true),
+        new Route('about', 'home.html'),
     ]);
 }
 // function changeUrl(){

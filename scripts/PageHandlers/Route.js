@@ -1,12 +1,11 @@
-var Route = /** @class */ (function () {
-    function Route(name, htmlName, defaultRoute) {
+export default class Route {
+    constructor(name, htmlName, defaultRoute = false) {
         this.name = name;
         this.htmlName = htmlName;
         this.defaultRoute = defaultRoute;
     }
-    Route.prototype.router = function (hashedPath) {
-        return hashedPath.replace('#', '') === this.name;
-    };
-    return Route;
-}());
-export default Route;
+    isActive(hashedPath) {
+        console.log(hashedPath, this.name);
+        return hashedPath.substr(1).replace('#', '') === this.name;
+    }
+}

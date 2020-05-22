@@ -13,6 +13,15 @@ export default class Router{
         this.hashChanged();
     }    
     hashChanged():void{
-        console.log(window.location.hash);
+        const currentHash:string = window.location.hash; 
+        if(currentHash.length>0){
+            const activeRoute =  this.routes.find(x=>x.isActive(currentHash));
+            console.log(activeRoute);
+            if(activeRoute){
+                console.log(activeRoute);
+            }
+        }else{
+
+        }
     }
 }

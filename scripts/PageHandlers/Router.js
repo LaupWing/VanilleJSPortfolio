@@ -1,16 +1,22 @@
-var Router = /** @class */ (function () {
-    function Router(routes) {
-        var _this = this;
+export default class Router {
+    constructor(routes) {
         this.root = document.getElementById('app');
         this.routes = routes;
-        window.addEventListener('hashchange', function (e) {
-            _this.hashChanged();
+        window.addEventListener('hashchange', (e) => {
+            this.hashChanged();
         });
         this.hashChanged();
     }
-    Router.prototype.hashChanged = function () {
-        console.log(window.location.hash);
-    };
-    return Router;
-}());
-export default Router;
+    hashChanged() {
+        const currentHash = window.location.hash;
+        if (currentHash.length > 0) {
+            const activeRoute = this.routes.find(x => x.isActive(currentHash));
+            console.log(activeRoute);
+            if (activeRoute) {
+                console.log(activeRoute);
+            }
+        }
+        else {
+        }
+    }
+}

@@ -2,10 +2,11 @@ export default class Route{
     constructor(
         public name:string,
         public htmlName: string,
-        public defaultRoute: boolean,
+        public defaultRoute: boolean = false,
     ){
     }
-    router(hashedPath: string):boolean{  
-        return hashedPath.replace('#', '') === this.name;
+    isActive(hashedPath: string):boolean{ 
+        console.log(hashedPath, this.name) 
+        return hashedPath.substr(1).replace('#', '') === this.name;
     }
 }
