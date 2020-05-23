@@ -12,6 +12,7 @@ export default class Clean{
         this.container.addEventListener('animationend', (e)=>{
             const el = e.target as HTMLDivElement;
             console.log('animation has ended');
+            console.log(el.classList);
             if(el.classList.contains('appear')){
                 el.classList.remove('appear');
             }else{
@@ -23,7 +24,6 @@ export default class Clean{
         
     }
     toggleLinks(state:string){
-        console.log('toggling')
         if(state === 'add'){
             this.links.forEach(link=>link.classList.add('disabled'));
         }else{
