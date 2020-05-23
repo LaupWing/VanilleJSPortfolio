@@ -13,31 +13,11 @@ function setLetterSpacingLogo() {
         }
     });
 }
-// function navigations():void{
-//     const allLinks = document.querySelectorAll('#clean nav a') as NodeListOf<HTMLLinkElement>;
-//     allLinks.forEach(a=>{
-//         console.log(a);
-//         a.addEventListener('click', (e)=>{
-//             e.preventDefault();
-//             const link:string = (<HTMLLinkElement>e.target).href!;
-//             const state = {
-//                 id: link
-//             };
-//             history.pushState(state, '', link);
-//             const popStateEvent = new PopStateEvent('popstate', { state: state });
-//             dispatchEvent(popStateEvent);
-//         })
-//     })
-// }
 function init() {
     setLetterSpacingLogo();
     new Router([
         new Route('home', 'home.html', true),
-        new Route('about', 'home.html'),
+        new Route('about', 'about.html'),
     ]);
 }
-// function changeUrl(){
-//     console.log(history)
-//     console.log('chagnes?')
-// }
 window.addEventListener('load', init);

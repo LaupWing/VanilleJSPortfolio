@@ -28,6 +28,8 @@ export default class Router {
             }
         }
         else {
+            const defaultRoute = this.routes.find(x => x.defaultRoute);
+            this.fetchHTML(defaultRoute.htmlName);
         }
     }
     fetchHTML(htmlName) {

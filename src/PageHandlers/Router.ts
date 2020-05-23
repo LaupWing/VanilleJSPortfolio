@@ -17,12 +17,13 @@ export default class Router{
         if(currentHash.length>0){
             const activeRoute =  this.routes.find(x=>x.isActive(currentHash));
             if(activeRoute){
-                this.fetchHTML(activeRoute.htmlName)
+                this.fetchHTML(activeRoute.htmlName);
             }else{
-                this.fetchHTML('error.html')
+                this.fetchHTML('error.html');
             }
         }else{
-
+            const defaultRoute = this.routes.find(x=>x.defaultRoute)!;
+            this.fetchHTML(defaultRoute.htmlName);
         }
     }
     async fetchHTML(htmlName:string){
