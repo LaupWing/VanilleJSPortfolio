@@ -4,7 +4,7 @@
   "description": "A Portfolio where you can switch designs, because i'm indecisive.",
   "main": "index.js",
   "scripts": {
-    "start": "serve index.html"
+    "start": "serve public"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
     "url": "https://github.com/LaupWing/VanilleJSPortfolio/issues"
   },
   "homepage": "https://github.com/LaupWing/VanilleJSPortfolio#readme",
-  "devDependencies": {
-    "serve": "^11.3.1"
+  "dependencies": {
+    "serve": "^11.3.0"
   }
 }
