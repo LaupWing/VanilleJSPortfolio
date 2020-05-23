@@ -11,6 +11,7 @@ export default class Router{
         window.addEventListener('hashchange', (e)=>{
             this.hashChanged();
         });
+        this.hashChanged();
     }    
     hashChanged():void{
         const currentHash:string = window.location.hash; 
@@ -30,5 +31,6 @@ export default class Router{
         const res = await fetch(`../../views/${htmlName}`);
         const text = await res.text();
         this.root.innerHTML = text;
+        new Clean();
     }
 }

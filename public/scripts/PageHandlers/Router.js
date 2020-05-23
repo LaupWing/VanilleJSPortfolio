@@ -7,6 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+import Clean from '../themed_scripts/clean/main.js';
 export default class Router {
     constructor(routes) {
         this.root = document.getElementById('app');
@@ -14,6 +15,7 @@ export default class Router {
         window.addEventListener('hashchange', (e) => {
             this.hashChanged();
         });
+        this.hashChanged();
     }
     hashChanged() {
         const currentHash = window.location.hash;
@@ -36,6 +38,7 @@ export default class Router {
             const res = yield fetch(`../../views/${htmlName}`);
             const text = yield res.text();
             this.root.innerHTML = text;
+            new Clean();
         });
     }
 }

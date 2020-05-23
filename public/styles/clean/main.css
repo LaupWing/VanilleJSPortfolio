@@ -13,10 +13,10 @@
 }
 
 #clean .content.appear{
-    animation: slide 1s forwards;
+    animation: slide .5s forwards;
 }
 #clean .content.dissappear{
-    animation: slide 1s forwards reverse;
+    animation: slide .5s forwards reverse;
 }
 
 @keyframes slide{
