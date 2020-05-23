@@ -11,3 +11,21 @@
     flex-direction: column;
     display: flex;
 }
+
+#clean #app.go-away{
+    animation: go-away forwards 1s;
+}
+#clean #app.go-in{
+    animation: go-away forwards 3s reverse;
+}
+
+@keyframes go-away{
+    from{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to{
+        opacity: 0;
+        transform: translateY(50px);
+    }
+}
