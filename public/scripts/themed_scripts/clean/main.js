@@ -3,7 +3,6 @@ export default class Clean {
         this.links = document.querySelectorAll('#clean nav a');
         this.container = document.querySelector('#clean .content');
         this.goto = null;
-        this.animating = false;
         this.links.forEach(link => {
             link.addEventListener('click', this.handleLink.bind(this));
         });
@@ -14,17 +13,20 @@ export default class Clean {
             }
             else {
                 window.location.href = this.goto;
+                console.log('toggle from animationend');
+                this.toggleLinks();
             }
         });
     }
+    toggleLinks() {
+        console.log('toggling');
+        this.links.forEach(link => link.classList.toggle('disabled'));
+    }
     handleLink(e) {
         e.preventDefault();
-        console.log(this.animating);
-        if (this.animating) {
-            return;
-        }
         this.goto = e.target.href;
         this.container.classList.add('dissappear');
-        this.animating = true;
+        console.log('toggle from handlelink');
+        this.toggleLinks();
     }
 }

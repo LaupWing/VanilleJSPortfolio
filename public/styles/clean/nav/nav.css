@@ -22,3 +22,8 @@
     text-transform: uppercase;
     cursor: pointer;
 }
+
+#clean nav a.disabled{
+    pointer-events: none;
+    cursor: default;
+}
