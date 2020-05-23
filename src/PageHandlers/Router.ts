@@ -1,4 +1,5 @@
 import Route from './Route.js';
+import Clean from '../themed_scripts/clean/main.js';
 
 export default class Router{
     root:HTMLDivElement;
@@ -10,7 +11,6 @@ export default class Router{
         window.addEventListener('hashchange', (e)=>{
             this.hashChanged();
         });
-        this.hashChanged();
     }    
     hashChanged():void{
         const currentHash:string = window.location.hash; 

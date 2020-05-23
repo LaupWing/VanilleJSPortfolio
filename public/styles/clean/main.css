@@ -12,8 +12,11 @@
     display: flex;
 }
 
-#clean .content{
+#clean .content.appear{
     animation: slide 1s forwards;
+}
+#clean .content.dissappear{
+    animation: slide 1s forwards reverse;
 }
 
 @keyframes slide{

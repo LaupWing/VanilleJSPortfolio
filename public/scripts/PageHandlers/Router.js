@@ -14,7 +14,6 @@ export default class Router {
         window.addEventListener('hashchange', (e) => {
             this.hashChanged();
         });
-        this.hashChanged();
     }
     hashChanged() {
         const currentHash = window.location.hash;
