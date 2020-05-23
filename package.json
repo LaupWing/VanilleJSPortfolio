@@ -1,0 +1,23 @@
+{
+  "name": "VanilleJavascriptPorto",
+  "version": "1.0.0",
+  "description": "A Portfolio where you can switch designs, because i'm indecisive.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LaupWing/VanilleJSPortfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LaupWing/VanilleJSPortfolio/issues"
+  },
+  "homepage": "https://github.com/LaupWing/VanilleJSPortfolio#readme",
+  "devDependencies": {
+    "serve": "^11.3.1"
+  }
+}
