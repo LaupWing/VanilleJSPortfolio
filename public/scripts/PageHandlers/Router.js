@@ -12,6 +12,7 @@ export default class Router {
     constructor(routes) {
         this.root = document.getElementById('app');
         this.routes = routes;
+        this.initial = true;
         window.addEventListener('hashchange', (e) => {
             this.hashChanged();
         });
@@ -38,7 +39,10 @@ export default class Router {
             const res = yield fetch(`../../views/${htmlName}`);
             const text = yield res.text();
             this.root.innerHTML = text;
-            new Clean();
+            if (this.initial) {
+                this.initial = false;
+                new Clean();
+            }
         });
     }
 }

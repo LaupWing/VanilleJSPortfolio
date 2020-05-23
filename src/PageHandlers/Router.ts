@@ -4,10 +4,12 @@ import Clean from '../themed_scripts/clean/main.js';
 export default class Router{
     root:HTMLDivElement;
     routes:Route[];
+    initial:boolean;
 
     constructor(routes:Route[]){
         this.root = document.getElementById('app') as HTMLDivElement;
         this.routes = routes;
+        this.initial = true;
         window.addEventListener('hashchange', (e)=>{
             this.hashChanged();
         });
@@ -31,6 +33,9 @@ export default class Router{
         const res = await fetch(`../../views/${htmlName}`);
         const text = await res.text();
         this.root.innerHTML = text;
-        new Clean();
+        if(this.initial){
+            this.initial = false;
+            new Clean();
+        }
     }
 }

@@ -14,19 +14,19 @@ export default class Clean {
             else {
                 window.location.href = this.goto;
                 console.log('toggle from animationend');
-                this.toggleLinks();
+                this.toggleLinks('remove');
             }
         });
     }
-    toggleLinks() {
+    toggleLinks(state) {
         console.log('toggling');
-        this.links.forEach(link => link.classList.toggle('disabled'));
+        this.links.forEach(link => link.classList[state]('disabled'));
     }
     handleLink(e) {
         e.preventDefault();
         this.goto = e.target.href;
         this.container.classList.add('dissappear');
         console.log('toggle from handlelink');
-        this.toggleLinks();
+        this.toggleLinks('add');
     }
 }
