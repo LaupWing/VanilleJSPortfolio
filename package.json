@@ -4,7 +4,7 @@
   "description": "A Portfolio where you can switch designs, because i'm indecisive.",
   "main": "index.js",
   "scripts": {
-    "start": "serve ./public/index.html"
+    "start": "serve index.html"
   },
   "repository": {
     "type": "git",
