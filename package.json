@@ -4,7 +4,7 @@
   "description": "A Portfolio where you can switch designs, because i'm indecisive.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "serve ./public/index.html"
   },
   "repository": {
     "type": "git",
