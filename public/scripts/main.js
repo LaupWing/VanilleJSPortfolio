@@ -1,5 +1,6 @@
 import Router from './PageHandlers/Router.js';
 import Route from './PageHandlers/Route.js';
+import Clean from './themed_scripts/clean/main.js';
 function setLetterSpacingLogo() {
     const logo = document.querySelector('#clean #logo');
     const spans = document.querySelectorAll('#clean #logo span');
@@ -15,6 +16,7 @@ function setLetterSpacingLogo() {
 }
 function init() {
     setLetterSpacingLogo();
+    new Clean();
     new Router([
         new Route('home', 'home.html', true),
         new Route('about', 'about.html'),

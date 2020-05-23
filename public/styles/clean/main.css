@@ -12,20 +12,17 @@
     display: flex;
 }
 
-#clean #app.go-away{
-    animation: go-away forwards 1s;
-}
-#clean #app.go-in{
-    animation: go-away forwards 3s reverse;
+#clean .content{
+    animation: slide 1s forwards;
 }
 
-@keyframes go-away{
+@keyframes slide{
     from{
-        opacity: 1;
-        transform: translateY(0);
+        transform: translateY(50px);
+        opacity: 0;
     }
     to{
-        opacity: 0;
-        transform: translateY(50px);
+        transform: translateY(0);
+        opacity: 1;
     }
 }
