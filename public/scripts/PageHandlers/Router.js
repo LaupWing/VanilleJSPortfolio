@@ -7,12 +7,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import Clean from '../themed_scripts/clean/main.js';
 export default class Router {
-    constructor(routes) {
+    // template: 
+    constructor(routes, cb) {
         this.root = document.getElementById('app');
         this.routes = routes;
         this.initial = true;
+        this.cb = cb;
         window.addEventListener('hashchange', (e) => {
             this.hashChanged();
         });
@@ -41,7 +42,10 @@ export default class Router {
             this.root.innerHTML = text;
             if (this.initial) {
                 this.initial = false;
-                new Clean();
+                // new Clean();
+                this.cb();
+            }
+            else {
             }
         });
     }

@@ -1,15 +1,17 @@
 import Route from './Route.js';
-import Clean from '../themed_scripts/clean/main.js';
 
 export default class Router{
     root:HTMLDivElement;
     routes:Route[];
     initial:boolean;
+    cb: Function;
+    // template: 
 
-    constructor(routes:Route[]){
+    constructor(routes:Route[], cb:Function){
         this.root = document.getElementById('app') as HTMLDivElement;
         this.routes = routes;
         this.initial = true;
+        this.cb = cb;
         window.addEventListener('hashchange', (e)=>{
             this.hashChanged();
         });
@@ -35,7 +37,10 @@ export default class Router{
         this.root.innerHTML = text;
         if(this.initial){
             this.initial = false;
-            new Clean();
+            // new Clean();
+            this.cb();
+        }else{
+
         }
     }
 }
