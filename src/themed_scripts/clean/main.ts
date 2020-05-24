@@ -7,6 +7,9 @@ export default class Clean{
         this.container = null;
         this.goto= window.location.href;
         this.links.forEach(link=>{
+            if(link.href === window.location.href){
+                link.classList.add('active');
+            }
             link.addEventListener('click', this.handleLink.bind(this));
         });
     }
@@ -19,10 +22,13 @@ export default class Clean{
     }
     handleLink(e:Event){
         e.preventDefault();
-        const newLocation = (e.target as HTMLLinkElement).href;
+        const clickedLink = e.target as HTMLLinkElement;
+        const newLocation = clickedLink.href;
         if(this.goto === newLocation){
             return;
         }
+        this.links.forEach(link=>link.classList.remove('active'));
+        clickedLink.classList.add('active');
         this.goto = newLocation;
         this.container!.classList.add('dissappear');
         this.toggleLinks('add');
