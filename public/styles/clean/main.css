@@ -1,5 +1,6 @@
 @import url("./nav/nav.css");
 @import url("./projects/projects.css");
+@import url("./icons/icons.css");
 
 #clean{
     --highlight-color: #FF4F59;

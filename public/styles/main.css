@@ -1,4 +1,5 @@
 @import url('./clean/main.css');
+@import url('icons.css');
 
 :root{
     --main-font: 'Montserrat', sans-serif;

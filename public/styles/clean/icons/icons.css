@@ -1,0 +1,6 @@
+#clean .icons svg{
+    border-color: var(--highlight-color);
+}
+#clean .icons svg path{
+    fill: var(--highlight-color);
+}
