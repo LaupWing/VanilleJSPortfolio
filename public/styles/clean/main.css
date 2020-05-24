@@ -33,7 +33,9 @@
     margin: 80px 20px;
     font-size: 2rem;
 }
-
+#clean #app P{
+    margin-bottom: 20px;
+}
 
 @keyframes slide{
     from{
