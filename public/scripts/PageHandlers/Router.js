@@ -40,13 +40,7 @@ export default class Router {
             const res = yield fetch(`../../views/${htmlName}`);
             const text = yield res.text();
             this.root.innerHTML = text;
-            if (this.initial) {
-                this.initial = false;
-                // new Clean();
-                this.cb();
-            }
-            else {
-            }
+            this.cb();
         });
     }
 }

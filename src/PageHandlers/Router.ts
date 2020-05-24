@@ -35,12 +35,7 @@ export default class Router{
         const res = await fetch(`../../views/${htmlName}`);
         const text = await res.text();
         this.root.innerHTML = text;
-        if(this.initial){
-            this.initial = false;
-            // new Clean();
-            this.cb();
-        }else{
-
-        }
+        this.cb();
+       
     }
 }

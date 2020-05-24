@@ -20,25 +20,23 @@ export default class Clean{
     }
     handleLink(e:Event){
         e.preventDefault();
-        this.goto = (e.target as HTMLLinkElement).href;
+        const newLocation = (e.target as HTMLLinkElement).href;
+        if(this.goto === newLocation){
+            return;
+        }
+        this.goto = newLocation;
         this.container!.classList.add('dissappear');
-        console.log('toggle from handlelink')
         this.toggleLinks('add');
     }
     applyListenerContainer(){
         this.container = document.querySelector('#clean .content') as HTMLDivElement;
         this.container!.addEventListener('animationend', (e)=>{
             const el = e.target as HTMLDivElement;
-            console.log('animation has ended');
-            console.log(el.classList);
             if(el.classList.contains('appear')){
-                console.log('Removing appear');
                 el.classList.remove('appear');
+                this.toggleLinks('remove');
             }else{
                 window.location.href = this.goto!;
-                console.log('toggle from animationend');
-                el.classList.remove('dissappear');
-                this.toggleLinks('remove');
             }
         });
     }
