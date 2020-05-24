@@ -1,9 +1,11 @@
 export default class Icons{
     icons: NodeListOf<SVGAElement>;
     active: string;
+    isShow: boolean;
     constructor(active:string){
         this.icons = document.querySelectorAll('.icons svg');
         this.active = active;
+        this.isShow = false;
         this.setActive();
         this.icons.forEach(icon=>icon.addEventListener('click', this.changeTemplate.bind(this)))
     }

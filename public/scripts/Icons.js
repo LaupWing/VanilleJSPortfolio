@@ -2,6 +2,7 @@ export default class Icons {
     constructor(active) {
         this.icons = document.querySelectorAll('.icons svg');
         this.active = active;
+        this.isShow = false;
         this.setActive();
         this.icons.forEach(icon => icon.addEventListener('click', this.changeTemplate.bind(this)));
     }
