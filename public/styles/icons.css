@@ -13,6 +13,7 @@
     left: 0;
     width: 80px;
     opacity: 0;
+    transition: .5s;
     pointer-events: none;
 }
 
@@ -20,4 +21,24 @@
     opacity: 1;
     cursor: pointer;
     pointer-events: visible;
+}
+
+.icons svg.active.show{
+    background-color: var(--highlight-color);
+}
+#clean .icons svg.active.show path{
+    fill: white;
+}
+
+#clean .icons svg.show_0{
+    transform: translate(0, -110%) scale(0.8);
+    opacity: 1;
+}
+.icons svg.show_1{
+    transform: translate(80%, -80%) scale(0.8);
+    opacity: 1;
+}
+.icons svg.show_2{
+    transform: translate(110%, 0) scale(0.8);
+    opacity: 1;
 }

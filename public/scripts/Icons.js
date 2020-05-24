@@ -18,5 +18,7 @@ export default class Icons {
         filtered.forEach((x, i) => {
             x.classList.add(`show_${i}`);
         });
+        const activeStyling = Array.from(this.icons).find(x => x.classList.contains(this.active));
+        activeStyling === null || activeStyling === void 0 ? void 0 : activeStyling.classList.add('show');
     }
 }

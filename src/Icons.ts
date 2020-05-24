@@ -18,7 +18,9 @@ export default class Icons{
     changeTemplate(){
         const filtered = Array.from(this.icons).filter(x=>!x.classList.contains('active'));
         filtered.forEach((x,i)=>{
-            x.classList.add(`show_${i}`)
-        })
+            x.classList.add(`show_${i}`);
+        });
+        const activeStyling = Array.from(this.icons).find(x=>x.classList.contains(this.active));
+        activeStyling?.classList.add('show');
     }
 }
