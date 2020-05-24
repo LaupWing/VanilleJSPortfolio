@@ -23,6 +23,8 @@ function init():void{
     new Router([
         new Route('home', 'home.html', true),
         new Route('about', 'about.html'),
+        new Route('projects', 'projects.html'),
+        new Route('contact', 'contact.html'),
     ],()=>{
         Template.applyListenerContainer();
     })

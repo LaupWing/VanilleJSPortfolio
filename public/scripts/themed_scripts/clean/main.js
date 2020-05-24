@@ -2,7 +2,7 @@ export default class Clean {
     constructor() {
         this.links = document.querySelectorAll('#clean nav a');
         this.container = null;
-        this.goto = null;
+        this.goto = window.location.href;
         this.links.forEach(link => {
             link.addEventListener('click', this.handleLink.bind(this));
         });

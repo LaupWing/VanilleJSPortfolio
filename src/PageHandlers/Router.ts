@@ -36,6 +36,5 @@ export default class Router{
         const text = await res.text();
         this.root.innerHTML = text;
         this.cb();
-       
     }
 }

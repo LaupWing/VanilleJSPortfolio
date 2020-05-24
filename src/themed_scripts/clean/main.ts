@@ -1,11 +1,11 @@
 export default class Clean{
     links: NodeListOf<HTMLLinkElement>;
     container: HTMLDivElement | null;
-    goto: string | null;
+    goto: string;
     constructor(){
         this.links = document.querySelectorAll('#clean nav a');
         this.container = null;
-        this.goto= null;
+        this.goto= window.location.href;
         this.links.forEach(link=>{
             link.addEventListener('click', this.handleLink.bind(this));
         });
