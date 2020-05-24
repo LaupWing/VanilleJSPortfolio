@@ -9,7 +9,6 @@ export default class Clean{
         this.links.forEach(link=>{
             link.addEventListener('click', this.handleLink.bind(this));
         });
-        
     }
     toggleLinks(state:string){
         if(state === 'add'){

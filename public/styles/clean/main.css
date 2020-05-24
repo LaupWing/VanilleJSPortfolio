@@ -19,6 +19,22 @@
     animation: slide .5s forwards reverse;
 }
 
+
+#clean #app{
+    width: 70%;
+    align-self: flex-end;
+}
+
+#clean img{
+    width: 100%;
+}
+
+#clean #app h2{
+    margin: 80px 20px;
+    font-size: 2rem;
+}
+
+
 @keyframes slide{
     from{
         transform: translateY(50px);
