@@ -17,6 +17,23 @@ export default class Icons{
             }
         });
     }
+    handleClick(e:Event){
+        const clicked = e.target as SVGAElement;
+        if(clicked.classList.contains(this.active)){
+            if(this.isShow){
+                this.removeShow();
+                this.isShow = false;
+            }else{
+                this.changeTemplate();
+                this.isShow = true;
+            }
+        }
+    }
+    removeShow(){
+        this.links.forEach(link=>{
+            link
+        })
+    }
     changeTemplate(){
         const filtered = Array.from(this.icons).filter(x=>!x.classList.contains('active'));
         filtered.forEach((x,i)=>{
