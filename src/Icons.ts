@@ -7,7 +7,7 @@ export default class Icons{
         this.active = active;
         this.isShow = false;
         this.setActive();
-        this.icons.forEach(icon=>icon.addEventListener('click', this.changeTemplate.bind(this)))
+        this.icons.forEach(icon=>icon.addEventListener('click', this.handleClick.bind(this)))
     }
     setActive(){
         this.icons.forEach(icon=>{
@@ -30,8 +30,9 @@ export default class Icons{
         }
     }
     removeShow(){
-        this.links.forEach(link=>{
-            link
+        this.icons.forEach(icon=>{
+            const showClass:string = Array.from(icon.classList).find(x=>x.includes('show'))!;
+            icon.classList.remove(showClass);
         })
     }
     changeTemplate(){
