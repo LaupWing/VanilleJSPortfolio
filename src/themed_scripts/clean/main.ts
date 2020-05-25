@@ -7,8 +7,16 @@ export default class Clean{
         this.container = null;
         this.goto= window.location.href;
         this.links.forEach(link=>{
-            if(link.href === window.location.href){
-                link.classList.add('active');
+            console.log(window.location.hash)
+            if(window.location.hash.length === 0){
+                
+                if(link.href === `${window.location.origin}/#`){
+                    link.classList.add('active');
+                }
+            }else{
+                if(link.href === window.location.href){
+                    link.classList.add('active');
+                }
             }
             link.addEventListener('click', this.handleLink.bind(this));
         });
