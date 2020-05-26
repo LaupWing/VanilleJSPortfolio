@@ -12,14 +12,17 @@ export default class Icons{
     setActive(){
         this.icons.forEach(icon=>{
             icon.classList.remove('active');
+            console.log(icon.classList)
+            console.log(this.active)
             if(icon.classList.contains(this.active)){
                 icon.classList.add('active');
             }
         });
     }
     handleClick(e:Event){
-        const clicked = e.target as SVGAElement;
-        if(clicked.classList.contains(this.active)){
+        const target = e.target as HTMLElement;
+        const svg = target.closest('svg')! as SVGElement;
+        if(svg!.classList.contains(this.active)){
             if(this.isShow){
                 this.removeShow();
                 this.isShow = false;
@@ -28,10 +31,10 @@ export default class Icons{
                 this.isShow = true;
             }
         }else{
-            this.changeTheme(clicked);
+            this.changeTheme(svg);
         }
     }
-    changeTheme(e:SVGAElement){
+    changeTheme(e:SVGElement){
         this.active = e.classList[0];
         this.setActive();
         this.removeShow();
