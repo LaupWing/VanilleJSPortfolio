@@ -26,11 +26,11 @@
 .icons svg.active.show{
     background-color: var(--highlight-color);
 }
-#clean .icons svg.active.show path{
+.icons svg.active.show path{
     fill: white;
 }
 
-#clean .icons svg.show_0{
+.icons svg.show_0{
     transform: translate(0, -110%) scale(0.8);
     opacity: 1;
 }
@@ -43,19 +43,26 @@
     opacity: 1;
 }
 
-#clean .icons .show_0,
-#clean .icons .show_1,
-#clean .icons .show_2{
+.icons .show_0,
+.icons .show_1,
+.icons .show_2{
     pointer-events: visible;
     cursor: pointer;
 }
-#clean .show_0:hover,
-#clean .show_1:hover,
-#clean .show_2:hover{
+
+.icons svg{
+    border-color: var(--highlight-color);
+}
+.icons svg path{
+    fill: var(--highlight-color);
+}
+.show_0:hover,
+.show_1:hover,
+.show_2:hover{
     background-color: var(--highlight-color);
 }
-#clean .icons .show_0:hover path,
-#clean .icons .show_1:hover path,
-#clean .icons .show_2:hover path{
+.icons .show_0:hover path,
+.icons .show_1:hover path,
+.icons .show_2:hover path{
     fill: white;
 }

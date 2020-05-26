@@ -4,3 +4,13 @@
 #clean .icons svg path{
     fill: var(--highlight-color);
 }
+#clean .show_0:hover,
+#clean .show_1:hover,
+#clean .show_2:hover{
+    background-color: var(--highlight-color);
+}
+#clean .icons .show_0:hover path,
+#clean .icons .show_1:hover path,
+#clean .icons .show_2:hover path{
+    fill: white;
+}
