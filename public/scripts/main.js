@@ -1,6 +1,6 @@
 import Router from './PageHandlers/Router.js';
 import Route from './PageHandlers/Route.js';
-import TemplateHandler from './TemplateHandler.js';
+import Clean from './themed_scripts/clean/main.js';
 import Icons from './Icons.js';
 function setLetterSpacingLogo() {
     const logo = document.querySelector('#logo');
@@ -17,8 +17,8 @@ function setLetterSpacingLogo() {
 }
 function init() {
     setLetterSpacingLogo();
-    // const clean = new Clean();
-    const templateHandler = new TemplateHandler('clean');
+    const clean = new Clean();
+    // const templateHandler = new TemplateHandler('clean'); 
     new Icons('clean');
     new Router([
         new Route('home', 'home.html', true),
@@ -26,8 +26,8 @@ function init() {
         new Route('projects', 'projects.html'),
         new Route('contact', 'contact.html'),
     ], () => {
-        console.log('test');
-        templateHandler.templateObj.applyListenerContainer();
+        // templateHandler.templateObj!.applyListenerContainer();
+        clean.applyListenerContainer();
     });
 }
 window.addEventListener('load', init);
