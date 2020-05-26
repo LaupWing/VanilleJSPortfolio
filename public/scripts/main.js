@@ -1,7 +1,7 @@
 import Router from './PageHandlers/Router.js';
 import Route from './PageHandlers/Route.js';
 import Clean from './themed_scripts/clean/main.js';
-import Icons from './Icons.js';
+import Icons from './Template.js';
 function setLetterSpacingLogo() {
     const logo = document.querySelector('#logo');
     const spans = document.querySelectorAll('#logo span');
