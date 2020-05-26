@@ -10,6 +10,7 @@ export default class Icons {
         this.icons.forEach(icon => {
             icon.classList.remove('active');
             if (icon.classList.contains(this.active)) {
+                document.body.id = this.active;
                 icon.classList.add('active');
             }
         });
