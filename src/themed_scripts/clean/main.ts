@@ -7,9 +7,7 @@ export default class Clean{
         this.container = null;
         this.goto= window.location.href;
         this.links.forEach(link=>{
-            console.log(window.location.hash)
             if(window.location.hash.length === 0){
-                
                 if(link.href === `${window.location.origin}/#`){
                     link.classList.add('active');
                 }
