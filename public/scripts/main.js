@@ -26,6 +26,7 @@ function init() {
         new Route('projects', 'projects.html'),
         new Route('contact', 'contact.html'),
     ], () => {
+        // NEED TO REMOVE ALL LISTENERES BEFORE REAPPLYING TO NEW TEMPLATE SCRIPT
         // templateHandler.templateObj!.applyListenerContainer();
         clean.applyListenerContainer();
     });
