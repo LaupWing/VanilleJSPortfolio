@@ -9,8 +9,6 @@ export default class Icons {
     setActive() {
         this.icons.forEach(icon => {
             icon.classList.remove('active');
-            console.log(icon.classList);
-            console.log(this.active);
             if (icon.classList.contains(this.active)) {
                 icon.classList.add('active');
             }
@@ -37,6 +35,7 @@ export default class Icons {
         this.active = e.classList[0];
         this.setActive();
         this.removeShow();
+        this.isShow = false;
     }
     removeShow() {
         this.icons.forEach(icon => {
