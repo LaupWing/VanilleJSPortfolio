@@ -1,5 +1,5 @@
 import SwitchTemplate from './SwitchTemplate.js';
-export default class Template extends SwitchTemplate {
+export default class Icons extends SwitchTemplate {
     constructor(active) {
         super(active);
         this.isShow = false;

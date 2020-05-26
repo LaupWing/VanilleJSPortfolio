@@ -1,6 +1,7 @@
 import Router from './PageHandlers/Router.js';
 import Route from './PageHandlers/Route.js';
 import Clean from './themed_scripts/clean/main.js';
+import TemplateHandler from './TemplateHandler.js';
 import Icons from './Icons.js';
 
 function setLetterSpacingLogo():void{
@@ -20,7 +21,8 @@ function setLetterSpacingLogo():void{
 
 function init():void{
     setLetterSpacingLogo();
-    const clean = new Clean();
+    // const clean = new Clean();
+    const templateHandler = new TemplateHandler('clean'); 
     new Icons('clean');
     new Router([
         new Route('home', 'home.html', true),
@@ -28,7 +30,8 @@ function init():void{
         new Route('projects', 'projects.html'),
         new Route('contact', 'contact.html'),
     ],()=>{
-        clean.applyListenerContainer();
+        console.log('test')
+        templateHandler.templateObj!.applyListenerContainer();
     })
 }
 

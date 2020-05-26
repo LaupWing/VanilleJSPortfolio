@@ -2,8 +2,14 @@ import Clean from "./themed_scripts/clean/main.js";
 import ThreeD from "./themed_scripts/threed/main.js";
 import SwitchTemplate from "./SwitchTemplate.js";
 
+interface TemplateObj {
+    applyListenerContainer: Function
+    toggleLinks: Function
+    handleLink: Function
+  }
+
 export default class TemplateHandler extends SwitchTemplate{
-    templateObj:object|null;
+    templateObj:TemplateObj|null;
     constructor(template:string){
         super(template);
         this.templateObj = null;

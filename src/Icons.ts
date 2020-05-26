@@ -1,6 +1,6 @@
 import SwitchTemplate from './SwitchTemplate.js';
 
-export default class Template extends SwitchTemplate{
+export default class Icons extends SwitchTemplate{
     isShow: boolean;
     constructor(active:string){
         super(active);
