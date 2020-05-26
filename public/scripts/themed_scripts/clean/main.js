@@ -27,6 +27,7 @@ export default class Clean {
     }
     handleLink(e) {
         e.preventDefault();
+        console.log('click from clean');
         const clickedLink = e.target;
         const newLocation = clickedLink.href;
         if (this.goto === newLocation) {
