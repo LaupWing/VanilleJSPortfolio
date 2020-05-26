@@ -1,4 +1,4 @@
-export default class Icons {
+export default class Template {
     constructor(active) {
         this.icons = document.querySelectorAll('.icons svg');
         this.active = active;
