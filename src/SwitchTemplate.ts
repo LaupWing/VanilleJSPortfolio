@@ -6,7 +6,7 @@ export default class SwitchTemplate{
         this.active = active;
         this.icons.forEach(icon=>icon.addEventListener('click', this.handleClick.bind(this)))
     }
-    handleClick(){
+    handleClick(e:Event|null){
         alert('You havent override the handleClick method in from this class');
     }
 }

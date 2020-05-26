@@ -1,13 +1,11 @@
-export default class Template{
-    icons: NodeListOf<SVGElement>;
-    active: string;
+import SwitchTemplate from './SwitchTemplate.js';
+
+export default class Template extends SwitchTemplate{
     isShow: boolean;
     constructor(active:string){
-        this.icons = document.querySelectorAll('.icons svg');
-        this.active = active;
+        super(active);
         this.isShow = false;
         this.setActive();
-        this.icons.forEach(icon=>icon.addEventListener('click', this.handleClick.bind(this)))
     }
     setActive(){
         this.icons.forEach(icon=>{
