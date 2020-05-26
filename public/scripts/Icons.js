@@ -22,10 +22,18 @@ export default class Icons {
                 this.isShow = false;
             }
             else {
-                this.changeTemplate();
+                this.showIcons();
                 this.isShow = true;
             }
         }
+        else {
+            this.changeTheme(clicked);
+        }
+    }
+    changeTheme(e) {
+        this.active = e.classList[0];
+        this.setActive();
+        this.removeShow();
     }
     removeShow() {
         this.icons.forEach(icon => {
@@ -33,7 +41,7 @@ export default class Icons {
             icon.classList.remove(showClass);
         });
     }
-    changeTemplate() {
+    showIcons() {
         const filtered = Array.from(this.icons).filter(x => !x.classList.contains('active'));
         filtered.forEach((x, i) => {
             x.classList.add(`show_${i}`);
