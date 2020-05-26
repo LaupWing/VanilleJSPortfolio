@@ -42,3 +42,20 @@
     transform: translate(110%, 0) scale(0.8);
     opacity: 1;
 }
+
+#clean .icons .show_0,
+#clean .icons .show_1,
+#clean .icons .show_2{
+    pointer-events: visible;
+    cursor: pointer;
+}
+#clean .show_0:hover,
+#clean .show_1:hover,
+#clean .show_2:hover{
+    background-color: var(--highlight-color);
+}
+#clean .icons .show_0:hover path,
+#clean .icons .show_1:hover path,
+#clean .icons .show_2:hover path{
+    fill: white;
+}
