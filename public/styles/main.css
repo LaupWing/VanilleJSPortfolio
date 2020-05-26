@@ -1,5 +1,7 @@
 @import url('./clean/main.css');
-@import url('icons.css');
+@import url('./threed/main.css');
+@import url('./icons.css');
+@import url('./logo.css');
 
 :root{
     --main-font: 'Montserrat', sans-serif;
@@ -14,6 +16,7 @@ body{
     font-family: var(--main-font);
     display: flex;
     justify-content: center;
+    color: var(--main-font-color);
 }
 a{
     text-decoration: none;
@@ -28,3 +31,4 @@ main{
     max-width: 900px;
     width: 90vw;
 }
+

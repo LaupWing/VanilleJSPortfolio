@@ -1,0 +1,8 @@
+@import url('./nav/nav.css');
+
+#threed{
+    --background-color: #111111;
+    --highlight-color: #F082AC;
+    --main-font-color: white;
+    background: var(--background-color);
+}

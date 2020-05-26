@@ -27,7 +27,7 @@
     background-color: var(--highlight-color);
 }
 .icons svg.active.show path{
-    fill: white;
+    fill: var(--background-color);
 }
 
 .icons svg.show_0{
@@ -64,5 +64,5 @@
 .icons .show_0:hover path,
 .icons .show_1:hover path,
 .icons .show_2:hover path{
-    fill: white;
+    fill: var(--background-color);
 }

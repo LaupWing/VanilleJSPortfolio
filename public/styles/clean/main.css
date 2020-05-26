@@ -3,6 +3,9 @@
 
 #clean{
     --highlight-color: #FF4F59;
+    --background-color: white;
+    --main-font-color: black;
+    background-color: var(--background-color);
 }
 
 #clean h1,

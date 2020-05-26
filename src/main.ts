@@ -4,8 +4,8 @@ import Clean from './themed_scripts/clean/main.js';
 import Icons from './Icons.js';
 
 function setLetterSpacingLogo():void{
-    const logo = document.querySelector('#clean #logo') as HTMLHeadingElement;
-    const spans = document.querySelectorAll('#clean #logo span') as NodeListOf<HTMLSpanElement>;
+    const logo = document.querySelector('#logo') as HTMLHeadingElement;
+    const spans = document.querySelectorAll('#logo span') as NodeListOf<HTMLSpanElement>;
     const logoWidth:number = logo.offsetWidth;
     
     spans.forEach(span=>{

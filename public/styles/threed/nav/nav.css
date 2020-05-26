@@ -1,0 +1,17 @@
+#threed nav{
+    display: flex;
+    padding-top: 50px;
+    justify-content: space-between;
+    width: 60%;
+    align-items: flex-start;
+}
+
+#threed nav li{
+    font-size: .9rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 0 10px;
+}
+#threed nav ul{
+    display: flex;
+}
