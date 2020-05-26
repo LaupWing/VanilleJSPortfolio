@@ -1,4 +1,4 @@
-export default class Icons{
+export default class Template{
     icons: NodeListOf<SVGElement>;
     active: string;
     isShow: boolean;
