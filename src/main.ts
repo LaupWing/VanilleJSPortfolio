@@ -1,7 +1,7 @@
 import Router from './PageHandlers/Router.js';
 import Route from './PageHandlers/Route.js';
 import Clean from './themed_scripts/clean/main.js';
-import Icons from './Template.js';
+import Template from './Template.js';
 
 function setLetterSpacingLogo():void{
     const logo = document.querySelector('#logo') as HTMLHeadingElement;
@@ -20,15 +20,15 @@ function setLetterSpacingLogo():void{
 
 function init():void{
     setLetterSpacingLogo();
-    const Template = new Clean();
-    new Icons('clean');
+    const clean = new Clean();
+    new Template('clean');
     new Router([
         new Route('home', 'home.html', true),
         new Route('about', 'about.html'),
         new Route('projects', 'projects.html'),
         new Route('contact', 'contact.html'),
     ],()=>{
-        Template.applyListenerContainer();
+        clean.applyListenerContainer();
     })
 }
 
