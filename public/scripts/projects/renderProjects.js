@@ -12,6 +12,9 @@ export default function renderProjects() {
         const res = yield fetch('../../assets/projects.json');
         const projects = yield res.json();
         const projectsContainer = document.querySelector('section.projects');
-        projects.forEach;
+        console.log(projects);
+        projects.forEach((project) => {
+            console.log(project);
+        });
     });
 }

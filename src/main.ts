@@ -1,7 +1,7 @@
 import Router from './PageHandlers/Router.js';
 import Route from './PageHandlers/Route.js';
 import SwitchTemplate from './SwitchTemplate/SwitchTemplate.js';
-import projects from './projects/projects.js';
+import renderProjects from './projects/renderProjects.js';
 
 function setLetterSpacingLogo():void{
     const logo = document.querySelector('#logo') as HTMLHeadingElement;
@@ -29,7 +29,7 @@ function init():void{
     ],()=>{
         switchTemplate.templateHandler!.templateObj!.applyListenerContainer();
         if(window.location.hash === '#projects'){
-            projects();
+            renderProjects();
         }
     });
 }
