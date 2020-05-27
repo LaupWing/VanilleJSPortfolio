@@ -4,7 +4,7 @@ export default class Theme{
     goto: string;
     constructor(){
         this.links = document.querySelectorAll('nav ul a');
-        this.container = null;
+        this.container = document.querySelector('#app .content');
         this.goto= window.location.href;
         this.links.forEach(link=>{
             if(window.location.hash.length === 0){
@@ -40,7 +40,7 @@ export default class Theme{
         this.toggleLinks('add');
     }
     applyListenerContainer(){
-        this.container = document.querySelector('#clean .content') as HTMLDivElement;
+        this.container = document.querySelector('#app .content') as HTMLDivElement;
         this.container!.addEventListener('animationend', (e)=>{
             const el = e.target as HTMLDivElement;
             if(el.classList.contains('appear')){
