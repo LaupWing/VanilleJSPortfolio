@@ -14,13 +14,4 @@ export default class TemplateHandler {
             this.templateObj = new ThreeD();
         }
     }
-    handleClick(e) {
-        const target = e.target;
-        const svg = target.closest('svg');
-        if (this.active === svg.classList[0]) {
-            return;
-        }
-        this.active = svg.classList[0];
-        this.setTemplate();
-    }
 }

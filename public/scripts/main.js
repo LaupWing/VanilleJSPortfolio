@@ -1,5 +1,6 @@
 import Router from './PageHandlers/Router.js';
 import Route from './PageHandlers/Route.js';
+import SwitchTemplate from './SwitchTemplate.js';
 // import Clean from './themed_scripts/clean/main.js';
 // import TemplateHandler from './TemplateHandler.js';
 // import Icons from './Icons.js';
@@ -20,7 +21,7 @@ function init() {
     setLetterSpacingLogo();
     // const clean = new Clean();
     // const templateHandler = new TemplateHandler('clean'); 
-    // new Icons('clean');
+    const switchTemplate = new SwitchTemplate('clean');
     new Router([
         new Route('home', 'home.html', true),
         new Route('about', 'about.html'),
@@ -28,7 +29,7 @@ function init() {
         new Route('contact', 'contact.html'),
     ], () => {
         // NEED TO REMOVE ALL LISTENERES BEFORE REAPPLYING TO NEW TEMPLATE SCRIPT
-        // templateHandler.templateObj!.applyListenerContainer();
+        switchTemplate.templateHandler.templateObj.applyListenerContainer();
         // clean.applyListenerContainer();
     });
 }

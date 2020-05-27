@@ -9,27 +9,9 @@ export default class Icons {
         this.svgs.forEach(icon => {
             icon.classList.remove('active');
             if (icon.classList.contains(this.active)) {
-                document.body.id = this.active;
                 icon.classList.add('active');
             }
         });
-    }
-    handleClick(e) {
-        const target = e.target;
-        const svg = target.closest('svg');
-        if (svg.classList.contains(this.active)) {
-            if (this.isShow) {
-                this.removeShow();
-                this.isShow = false;
-            }
-            else {
-                this.showIcons();
-                this.isShow = true;
-            }
-        }
-        else {
-            this.changeTheme(svg);
-        }
     }
     toggleShow() {
         if (this.isShow) {
@@ -41,8 +23,7 @@ export default class Icons {
             this.isShow = true;
         }
     }
-    changeTheme(e) {
-        this.active = e.classList[0];
+    changeTheme() {
         this.setActive();
         this.removeShow();
         this.isShow = false;

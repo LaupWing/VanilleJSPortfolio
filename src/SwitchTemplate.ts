@@ -21,9 +21,22 @@ export default class SwitchTemplate{
         if(svg!.classList.contains(this.active)){
             this.icons.toggleShow();
         }else{
-            this.icons.changeTheme(svg);
+            this.setActive(svg.classList[0]);
+            document.body.id = this.active
+            this.icons.changeTheme();
             this.templateHandler.setTemplate();
         }
-        alert('You havent override the handleClick method in from this class');
+    }
+    setActive(theme:string){
+        this.icons.active = theme;
+        this.templateHandler.active = theme;
+        this.active = theme;
+        this.svgs.forEach(icon=>{
+            icon.classList.remove('active');
+            if(icon.classList.contains(this.active)){
+                document.body.id = this.active
+                icon.classList.add('active');
+            }
+        });
     }
 }
