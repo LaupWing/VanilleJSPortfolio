@@ -1,9 +1,6 @@
 import Router from './PageHandlers/Router.js';
 import Route from './PageHandlers/Route.js';
 import SwitchTemplate from './SwitchTemplate.js';
-// import Clean from './themed_scripts/clean/main.js';
-// import TemplateHandler from './TemplateHandler.js';
-// import Icons from './Icons.js';
 
 function setLetterSpacingLogo():void{
     const logo = document.querySelector('#logo') as HTMLHeadingElement;
@@ -22,8 +19,6 @@ function setLetterSpacingLogo():void{
 
 function init():void{
     setLetterSpacingLogo();
-    // const clean = new Clean();
-    // const templateHandler = new TemplateHandler('clean'); 
     const switchTemplate = new SwitchTemplate('clean');
     new Router([
         new Route('home', 'home.html', true),
@@ -31,9 +26,7 @@ function init():void{
         new Route('projects', 'projects.html'),
         new Route('contact', 'contact.html'),
     ],()=>{
-        // NEED TO REMOVE ALL LISTENERES BEFORE REAPPLYING TO NEW TEMPLATE SCRIPT
         switchTemplate.templateHandler!.templateObj!.applyListenerContainer();
-        // clean.applyListenerContainer();
     })
 }
 
