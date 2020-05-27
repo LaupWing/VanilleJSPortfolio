@@ -21,8 +21,8 @@ function setLetterSpacingLogo():void{
 
 function init():void{
     setLetterSpacingLogo();
-    const clean = new Clean();
-    // const templateHandler = new TemplateHandler('clean'); 
+    // const clean = new Clean();
+    const templateHandler = new TemplateHandler('clean'); 
     new Icons('clean');
     new Router([
         new Route('home', 'home.html', true),
@@ -31,8 +31,8 @@ function init():void{
         new Route('contact', 'contact.html'),
     ],()=>{
         // NEED TO REMOVE ALL LISTENERES BEFORE REAPPLYING TO NEW TEMPLATE SCRIPT
-        // templateHandler.templateObj!.applyListenerContainer();
-        clean.applyListenerContainer();
+        templateHandler.templateObj!.applyListenerContainer();
+        // clean.applyListenerContainer();
     })
 }
 

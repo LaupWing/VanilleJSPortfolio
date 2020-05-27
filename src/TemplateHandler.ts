@@ -23,6 +23,7 @@ export default class TemplateHandler extends SwitchTemplate{
         }
     }
     handleClick(e:Event){
+        console.log('click from tempaltehandler')
         const target = e.target as HTMLElement;
         const svg = target.closest('svg')! as SVGElement;
         this.active = svg.classList[0];
