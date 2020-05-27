@@ -1,6 +1,6 @@
 import Router from './PageHandlers/Router.js';
 import Route from './PageHandlers/Route.js';
-import SwitchTemplate from './SwitchTemplate.js';
+import SwitchTemplate from './SwitchTemplate/SwitchTemplate.js';
 function setLetterSpacingLogo() {
     const logo = document.querySelector('#logo');
     const spans = document.querySelectorAll('#logo span');

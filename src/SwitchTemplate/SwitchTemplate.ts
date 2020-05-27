@@ -1,5 +1,5 @@
-import Icons from './Icons.js';
-import TemplateHandler from './TemplateHandler.js';
+import Icons from './Icons/Icons.js';
+import TemplateHandler from './TemplateHandler/TemplateHandler.js';
 
 export default class SwitchTemplate{
     svgs: NodeListOf<SVGElement>;

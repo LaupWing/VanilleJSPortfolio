@@ -1,5 +1,5 @@
-import Clean from "./themed_scripts/clean/main.js";
-import ThreeD from "./themed_scripts/threed/main.js";
+import Clean from "../../themed_scripts/clean/main.js";
+import ThreeD from "../../themed_scripts/threed/main.js";
 
 interface TemplateObj {
     applyListenerContainer: Function
