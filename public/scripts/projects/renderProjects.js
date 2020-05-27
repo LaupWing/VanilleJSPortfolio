@@ -14,7 +14,14 @@ export default function renderProjects() {
         const projectsContainer = document.querySelector('section.projects');
         console.log(projects);
         projects.forEach((project) => {
-            console.log(project);
+            const projectElement = `
+            <div class="project">
+                <h3>${project.title}</h3>
+                <img src="${project.img}" alt="">
+                <p></p>
+            </div>
+        `;
+            projectsContainer === null || projectsContainer === void 0 ? void 0 : projectsContainer.insertAdjacentHTML('beforeend', projectElement);
         });
     });
 }

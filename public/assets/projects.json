@@ -1,14 +1,14 @@
 [
     {
-        "img": "path of link",
+        "img": "./assets/images/projects/dailyPlanner.png",
         "title": "title of img"
     },
     {
-        "img": "path of link",
+        "img": "./assets/images/projects/dailyPlanner.png",
         "title": "title of img"
     },
     {
-        "img": "path of link",
+        "img": "./assets/images/projects/dailyPlanner.png",
         "title": "title of img"
     }
 ]
