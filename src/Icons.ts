@@ -1,16 +1,16 @@
 export default class Icons{
     isShow: boolean;
-    icons:NodeListOf<SVGElement>;
+    svgs:NodeListOf<SVGElement>;
     active: string;
     
-    constructor(active:string, icons:NodeListOf<SVGElement>){
-        this.icons = icons;
+    constructor(active:string, svgs:NodeListOf<SVGElement>){
+        this.svgs = svgs;
         this.active = active;
         this.isShow = false;
         this.setActive();
     }
     setActive(){
-        this.icons.forEach(icon=>{
+        this.svgs.forEach(icon=>{
             icon.classList.remove('active');
             if(icon.classList.contains(this.active)){
                 document.body.id = this.active
@@ -40,17 +40,17 @@ export default class Icons{
         this.isShow = false;
     }
     removeShow(){
-        this.icons.forEach(icon=>{
+        this.svgs.forEach(icon=>{
             const showClass:string = Array.from(icon.classList).find(x=>x.includes('show'))!;
             icon.classList.remove(showClass);
         })
     }
     showIcons(){
-        const filtered = Array.from(this.icons).filter(x=>!x.classList.contains('active'));
+        const filtered = Array.from(this.svgs).filter(x=>!x.classList.contains('active'));
         filtered.forEach((x,i)=>{
             x.classList.add(`show_${i}`);
         });
-        const activeStyling = Array.from(this.icons).find(x=>x.classList.contains(this.active));
+        const activeStyling = Array.from(this.svgs).find(x=>x.classList.contains(this.active));
         activeStyling?.classList.add('show');
     }
 }
