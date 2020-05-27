@@ -10,10 +10,11 @@ interface TemplateObj {
 export default class TemplateHandler{
     templateObj:TemplateObj|null;
     active: string;
-
+    intial: boolean;
     constructor(active:string){
         this.active = active;
         this.templateObj = null;
+        this.intial=true;
         this.setTemplate();
     }
     resetLinks(){
@@ -28,5 +29,9 @@ export default class TemplateHandler{
         }else{
             this.templateObj = new ThreeD();
         }
+        if(!this.intial){
+            this.templateObj.applyListenerContainer();
+        }
+        this.intial = false;
     }
 }
