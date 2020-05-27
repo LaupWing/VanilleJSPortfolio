@@ -16,7 +16,6 @@ export default class TemplateHandler extends SwitchTemplate {
         }
     }
     handleClick(e) {
-        console.log('click from tempaltehandler');
         const target = e.target;
         const svg = target.closest('svg');
         if (this.active === svg.classList[0]) {
