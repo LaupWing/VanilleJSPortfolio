@@ -8,10 +8,12 @@ interface TemplateObj {
     handleLink: Function
   }
 
-export default class TemplateHandler extends SwitchTemplate{
+export default class TemplateHandler{
     templateObj:TemplateObj|null;
-    constructor(template:string){
-        super(template);
+    active: string;
+
+    constructor(active:string){
+        this.active = active;
         this.templateObj = null;
         this.setTemplate();
     }
@@ -26,9 +28,8 @@ export default class TemplateHandler extends SwitchTemplate{
         const target = e.target as HTMLElement;
         const svg = target.closest('svg')! as SVGElement;
         if(this.active === svg.classList[0]){
-            return
+            return;
         }
-        console.log('it changed');
         this.active = svg.classList[0];
         this.setTemplate();
     }

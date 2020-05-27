@@ -1,3 +1,5 @@
+
+
 export default class SwitchTemplate{
     icons: NodeListOf<SVGElement>;
     active: string;

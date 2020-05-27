@@ -1,9 +1,8 @@
 import Clean from "./themed_scripts/clean/main.js";
 import ThreeD from "./themed_scripts/threed/main.js";
-import SwitchTemplate from "./SwitchTemplate.js";
-export default class TemplateHandler extends SwitchTemplate {
-    constructor(template) {
-        super(template);
+export default class TemplateHandler {
+    constructor(active) {
+        this.active = active;
         this.templateObj = null;
         this.setTemplate();
     }
@@ -21,7 +20,6 @@ export default class TemplateHandler extends SwitchTemplate {
         if (this.active === svg.classList[0]) {
             return;
         }
-        console.log('it changed');
         this.active = svg.classList[0];
         this.setTemplate();
     }

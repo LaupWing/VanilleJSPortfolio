@@ -1,7 +1,7 @@
-import SwitchTemplate from './SwitchTemplate.js';
-export default class Icons extends SwitchTemplate {
-    constructor(active) {
-        super(active);
+export default class Icons {
+    constructor(active, icons) {
+        this.icons = icons;
+        this.active = active;
         this.isShow = false;
         this.setActive();
     }

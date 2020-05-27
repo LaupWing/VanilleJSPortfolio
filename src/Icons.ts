@@ -1,9 +1,11 @@
-import SwitchTemplate from './SwitchTemplate.js';
-
-export default class Icons extends SwitchTemplate{
+export default class Icons{
     isShow: boolean;
-    constructor(active:string){
-        super(active);
+    icons:NodeListOf<SVGElement>;
+    active: string;
+    
+    constructor(active:string, icons:NodeListOf<SVGElement>){
+        this.icons = icons;
+        this.active = active;
         this.isShow = false;
         this.setActive();
     }
