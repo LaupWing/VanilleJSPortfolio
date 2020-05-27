@@ -33,6 +33,15 @@ export default class Icons{
             this.changeTheme(svg);
         }
     }
+    toggleShow(){
+        if(this.isShow){
+            this.removeShow();
+            this.isShow = false;
+        }else{
+            this.showIcons();
+            this.isShow = true;
+        }
+    }
     changeTheme(e:SVGElement){
         this.active = e.classList[0];
         this.setActive();
