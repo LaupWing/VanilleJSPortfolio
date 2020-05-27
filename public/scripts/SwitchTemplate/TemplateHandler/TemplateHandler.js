@@ -6,7 +6,13 @@ export default class TemplateHandler {
         this.templateObj = null;
         this.setTemplate();
     }
+    resetLinks() {
+        const old_element = document.querySelector('nav ul');
+        const new_element = old_element.cloneNode(true);
+        old_element.parentNode.replaceChild(new_element, old_element);
+    }
     setTemplate() {
+        this.resetLinks();
         if (this.active === 'clean') {
             this.templateObj = new Clean();
         }

@@ -1,6 +1,6 @@
 export default class Theme {
     constructor() {
-        this.links = document.querySelectorAll('#clean nav a');
+        this.links = document.querySelectorAll('nav ul a');
         this.container = null;
         this.goto = window.location.href;
         this.links.forEach(link => {
@@ -27,7 +27,6 @@ export default class Theme {
     }
     handleLink(e) {
         e.preventDefault();
-        console.log(this);
         const clickedLink = e.target;
         const newLocation = clickedLink.href;
         if (this.goto === newLocation) {
