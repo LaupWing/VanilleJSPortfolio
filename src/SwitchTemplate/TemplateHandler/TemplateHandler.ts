@@ -5,6 +5,7 @@ interface TemplateObj {
     applyListenerContainer: Function
     toggleLinks: Function
     handleLink: Function
+    projects?: Function
   }
 
 export default class TemplateHandler{

@@ -7,12 +7,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-export default function renderProjects() {
+export default function renderProjects(cb = null) {
     return __awaiter(this, void 0, void 0, function* () {
         const res = yield fetch('../../assets/projects.json');
         const projects = yield res.json();
         const projectsContainer = document.querySelector('section.projects');
-        console.log(projects);
         projects.forEach((project) => {
             const projectElement = `
             <div class="project">
@@ -23,5 +22,8 @@ export default function renderProjects() {
         `;
             projectsContainer === null || projectsContainer === void 0 ? void 0 : projectsContainer.insertAdjacentHTML('beforeend', projectElement);
         });
+        if (cb) {
+            cb();
+        }
     });
 }
