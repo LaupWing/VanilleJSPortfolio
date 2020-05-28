@@ -3,14 +3,12 @@ import Route from './Route.js';
 export default class Router{
     root:HTMLDivElement;
     routes:Route[];
-    initial:boolean;
     cb: Function;
     // template: 
 
     constructor(routes:Route[], cb:Function){
         this.root = document.getElementById('app') as HTMLDivElement;
         this.routes = routes;
-        this.initial = true;
         this.cb = cb;
         window.addEventListener('hashchange', (e)=>{
             this.hashChanged();

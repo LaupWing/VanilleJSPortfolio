@@ -32,7 +32,15 @@ export default class TemplateHandler{
         }
         if(!this.intial){
             this.templateObj.applyListenerContainer();
+            this.pageRelatedMethods();
         }
         this.intial = false;
+    }
+    pageRelatedMethods(){
+        if(window.location.hash === '#projects'){
+            if(this.templateObj?.projects){
+                this.templateObj.projects();
+            }
+        }
     }
 }

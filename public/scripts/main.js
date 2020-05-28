@@ -24,15 +24,11 @@ function init() {
         new Route('projects', 'projects.html'),
         new Route('contact', 'contact.html'),
     ], () => {
-        var _a;
         switchTemplate.templateHandler.templateObj.applyListenerContainer();
         if (window.location.hash === '#projects') {
-            renderProjects((_a = switchTemplate.templateHandler.templateObj) === null || _a === void 0 ? void 0 : _a.projects);
+            renderProjects();
         }
+        switchTemplate.templateHandler.pageRelatedMethods();
     });
 }
-setTimeout(() => {
-    console.log(window.location.hash);
-    window.location.href = window.location.href;
-}, 2000);
 window.addEventListener('load', init);

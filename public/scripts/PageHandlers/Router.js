@@ -12,7 +12,6 @@ export default class Router {
     constructor(routes, cb) {
         this.root = document.getElementById('app');
         this.routes = routes;
-        this.initial = true;
         this.cb = cb;
         window.addEventListener('hashchange', (e) => {
             this.hashChanged();
