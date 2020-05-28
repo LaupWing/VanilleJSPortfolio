@@ -2,7 +2,11 @@
     height: 60vh;
     display: flex;
     justify-content: center;
+    transform-style: preserve-3d;
     align-items: center;
+}
+#threed #app h2:first-of-type{
+    display: none;
 }
 #threed .projects .project{
     display: none;
@@ -10,7 +14,9 @@
 #threed .projects .project.active{
     display: grid;
     grid-template-columns: 1fr;
-    grid-auto-rows: 1fr 1fr
+    grid-auto-rows: 1fr 1fr;
+    transform: translateZ(0);
+    transform-style: preserve-3d;
 }
     
 
@@ -26,5 +32,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transform-style: preserve-3d;
     flex-direction: column;
+}
+#threed .projects .project .project-info h3{
+    transform: translateZ(80px);
+}
+#threed .projects .project .project-info p{
+    transform: translateZ(100px);
 }
