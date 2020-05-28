@@ -1,8 +1,8 @@
 [
     {
         "img": "./assets/images/projects/dailyPlanner.png",
-        "title": "title of img",
-        "description": "Some description"
+        "title": "Daily Planner",
+        "description": "A website where you can see what you have planned for each day."
     },
     {
         "img": "./assets/images/projects/dailyPlanner.png",

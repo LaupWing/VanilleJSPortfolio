@@ -36,8 +36,15 @@
     flex-direction: column;
 }
 #threed .projects .project .project-info h3{
-    transform: translateZ(80px);
+    transform: translateZ(60px);
+    font-size: 2em;
 }
 #threed .projects .project .project-info p{
-    transform: translateZ(100px);
+    transform: translateZ(140px);
+    padding: 20px;
+    background-color: var(--main-font-color);
+    color:var(--background-color);
+    margin-top: 20px;
+    max-width: 300px;
+    width: 80%;
 }
