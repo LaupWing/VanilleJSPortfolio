@@ -6,6 +6,10 @@ interface TemplateObj {
     toggleLinks: Function
     handleLink: Function
     projects?: Function
+    listeners: {
+        element: HTMLElement|Document,
+        type: string
+    }[]
   }
 
 export default class TemplateHandler{
@@ -34,6 +38,7 @@ export default class TemplateHandler{
             this.templateObj.applyListenerContainer();
             this.pageRelatedMethods();
         }
+        console.log(this.templateObj.listeners)
         this.intial = false;
     }
     pageRelatedMethods(){

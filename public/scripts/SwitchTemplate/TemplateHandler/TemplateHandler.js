@@ -24,6 +24,7 @@ export default class TemplateHandler {
             this.templateObj.applyListenerContainer();
             this.pageRelatedMethods();
         }
+        console.log(this.templateObj.listeners);
         this.intial = false;
     }
     pageRelatedMethods() {
