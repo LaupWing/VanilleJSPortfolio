@@ -1,5 +1,5 @@
 interface listenerObj{
-    element: HTMLElement,
+    element: HTMLElement|Document,
     type: string
 }
 
