@@ -2,22 +2,13 @@ export default class Theme{
     links: NodeListOf<HTMLLinkElement>;
     container: HTMLDivElement | null;
     goto: string;
+    listeners: [];
     constructor(){
         this.links = document.querySelectorAll('nav ul a');
         this.container = document.querySelector('#app .content');
         this.goto= window.location.href;
-        this.links.forEach(link=>{
-            if(window.location.hash.length === 0){
-                if(link.href === `${window.location.origin}/#`){
-                    link.classList.add('active');
-                }
-            }else{
-                if(link.href === window.location.href){
-                    link.classList.add('active');
-                }
-            }
-            link.addEventListener('click', this.handleLink.bind(this));
-        });
+        this.listeners = [];
+        this.applyListenerLinks();
     }
     toggleLinks(state:string){
         if(state === 'add'){
@@ -38,6 +29,20 @@ export default class Theme{
         this.goto = newLocation;
         this.container!.classList.add('dissappear');
         this.toggleLinks('add');
+    }
+    applyListenerLinks(){
+        this.links.forEach(link=>{
+            if(window.location.hash.length === 0){
+                if(link.href === `${window.location.origin}/#`){
+                    link.classList.add('active');
+                }
+            }else{
+                if(link.href === window.location.href){
+                    link.classList.add('active');
+                }
+            }
+            link.addEventListener('click', this.handleLink.bind(this));
+        });
     }
     applyListenerContainer(){
         this.container = document.querySelector('#app .content') as HTMLDivElement;
