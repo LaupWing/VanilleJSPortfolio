@@ -1,8 +1,13 @@
+interface listenerObj{
+    element: HTMLElement,
+    type: string
+}
+
 export default class Theme{
     links: NodeListOf<HTMLLinkElement>;
     container: HTMLDivElement | null;
     goto: string;
-    listeners: [];
+    listeners: listenerObj[];
     constructor(){
         this.links = document.querySelectorAll('nav ul a');
         this.container = document.querySelector('#app .content');
@@ -41,11 +46,19 @@ export default class Theme{
                     link.classList.add('active');
                 }
             }
+            this.listeners.push({
+                element: link,
+                type: 'click'
+            })
             link.addEventListener('click', this.handleLink.bind(this));
         });
     }
     applyListenerContainer(){
         this.container = document.querySelector('#app .content') as HTMLDivElement;
+        this.listeners.push({
+            element: this.container,
+            type: 'animationend'
+        })
         this.container!.addEventListener('animationend', (e)=>{
             const el = e.target as HTMLDivElement;
             if(el.classList.contains('appear')){

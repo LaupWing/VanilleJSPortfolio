@@ -39,11 +39,19 @@ export default class Theme {
                     link.classList.add('active');
                 }
             }
+            this.listeners.push({
+                element: link,
+                type: 'click'
+            });
             link.addEventListener('click', this.handleLink.bind(this));
         });
     }
     applyListenerContainer() {
         this.container = document.querySelector('#app .content');
+        this.listeners.push({
+            element: this.container,
+            type: 'animationend'
+        });
         this.container.addEventListener('animationend', (e) => {
             const el = e.target;
             if (el.classList.contains('appear')) {
