@@ -1,0 +1,10 @@
+#threed .projects{
+    
+}
+#threed .projects .project{
+    display: none;
+}
+#threed .projects .project.active{
+    display: block;
+    
+}

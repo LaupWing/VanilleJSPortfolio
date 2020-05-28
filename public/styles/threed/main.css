@@ -1,4 +1,5 @@
 @import url('./nav/nav.css');
+@import url('./projects/projects.css');
 
 #threed{
     --background-color: #111111;
