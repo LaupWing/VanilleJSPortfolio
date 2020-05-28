@@ -6,6 +6,7 @@ export default class ThreeD extends Theme{
     }
     projects(){
         const projects = document.querySelectorAll('.project') as NodeListOf<HTMLDivElement>;
-        projects[0].classList.add('active');
+        const activeProject = projects[0];
+        activeProject.classList.add('active');
     }
 }

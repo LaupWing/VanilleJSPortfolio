@@ -15,9 +15,11 @@ export default function renderProjects(cb = null) {
         projects.forEach((project) => {
             const projectElement = `
             <div class="project">
-                <h3>${project.title}</h3>
                 <img src="${project.img}" alt="">
-                <p></p>
+                <div class="project-info">
+                    <h3>${project.title}</h3>
+                    <p>${project.description}</p>
+                </div>
             </div>
         `;
             projectsContainer === null || projectsContainer === void 0 ? void 0 : projectsContainer.insertAdjacentHTML('beforeend', projectElement);

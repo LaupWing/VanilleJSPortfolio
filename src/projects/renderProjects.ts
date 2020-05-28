@@ -1,6 +1,7 @@
 interface project{
     title: string,
-    img: string
+    img: string,
+    description: string
 }
 
 export default async function renderProjects(cb:Function|null =null){
@@ -11,9 +12,11 @@ export default async function renderProjects(cb:Function|null =null){
     projects.forEach((project:project)=>{
         const projectElement = `
             <div class="project">
-                <h3>${project.title}</h3>
                 <img src="${project.img}" alt="">
-                <p></p>
+                <div class="project-info">
+                    <h3>${project.title}</h3>
+                    <p>${project.description}</p>
+                </div>
             </div>
         `
         projectsContainer?.insertAdjacentHTML('beforeend', projectElement);

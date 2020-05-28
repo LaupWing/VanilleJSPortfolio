@@ -1,10 +1,30 @@
 #threed .projects{
-    
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #threed .projects .project{
     display: none;
 }
 #threed .projects .project.active{
-    display: block;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1fr 1fr
+}
     
+
+#threed .projects .project img{
+    width: 70%;
+    grid-row: 1;
+    margin: auto;
+    grid-column: 2;
+}
+#threed .projects .project .project-info{
+    grid-row: 1;
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

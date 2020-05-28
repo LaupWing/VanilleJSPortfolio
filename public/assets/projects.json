@@ -1,14 +1,17 @@
 [
     {
         "img": "./assets/images/projects/dailyPlanner.png",
-        "title": "title of img"
+        "title": "title of img",
+        "description": "Some description"
     },
     {
         "img": "./assets/images/projects/dailyPlanner.png",
-        "title": "title of img"
+        "title": "title of img",
+        "description": "Some description"
     },
     {
         "img": "./assets/images/projects/dailyPlanner.png",
-        "title": "title of img"
+        "title": "title of img",
+        "description": "Some description"
     }
 ]
