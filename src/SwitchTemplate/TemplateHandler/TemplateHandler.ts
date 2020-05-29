@@ -44,15 +44,12 @@ export default class TemplateHandler{
         this.intial = false;
     }
     removeListeners(){
-        // if(this.templateObj && this.templateObj!.listeners.length>0){
-        //     this.templateObj.listeners.forEach(l=>{
-        //         document.getEventListeners(l.element)[l.type].forEach(o=>{
-        //             console.log(o);
-        //         }
-        //             // function(o:any) { o.remove(); }
-        //          ); 
-        //     })
-        // }
+        if(this.templateObj && this.templateObj!.listeners.length>0){
+            this.templateObj.listeners.forEach(l=>{
+                console.log(l); 
+                l.element.removeEventListener(l.type, l.referenceFunction);
+            })
+        }
     }
     pageRelatedMethods(){
         if(window.location.hash === '#projects'){
