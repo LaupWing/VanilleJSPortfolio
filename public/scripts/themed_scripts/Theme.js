@@ -41,7 +41,8 @@ export default class Theme {
             }
             this.listeners.push({
                 element: link,
-                type: 'click'
+                type: 'click',
+                referenceFunction: this.applyListenerLinks
             });
             link.addEventListener('click', this.handleLink.bind(this));
         });
@@ -50,7 +51,8 @@ export default class Theme {
         this.container = document.querySelector('#app .content');
         this.listeners.push({
             element: this.container,
-            type: 'animationend'
+            type: 'animationend',
+            referenceFunction: this.applyListenerContainer
         });
         this.container.addEventListener('animationend', (e) => {
             const el = e.target;

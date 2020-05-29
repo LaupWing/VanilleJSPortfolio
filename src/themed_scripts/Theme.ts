@@ -1,6 +1,7 @@
 interface listenerObj{
     element: HTMLElement|Document,
-    type: string
+    type: string,
+    referenceFunction: Function
 }
 
 export default class Theme{
@@ -48,8 +49,9 @@ export default class Theme{
             }
             this.listeners.push({
                 element: link,
-                type: 'click'
-            })
+                type: 'click',
+                referenceFunction: this.applyListenerLinks
+            });
             link.addEventListener('click', this.handleLink.bind(this));
         });
     }
@@ -57,8 +59,10 @@ export default class Theme{
         this.container = document.querySelector('#app .content') as HTMLDivElement;
         this.listeners.push({
             element: this.container,
-            type: 'animationend'
-        })
+            type: 'animationend',
+            referenceFunction:this.applyListenerContainer 
+        });
+
         this.container!.addEventListener('animationend', (e)=>{
             const el = e.target as HTMLDivElement;
             if(el.classList.contains('appear')){

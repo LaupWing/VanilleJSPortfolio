@@ -8,7 +8,8 @@ interface TemplateObj {
     projects?: Function
     listeners: {
         element: HTMLElement|Document,
-        type: string
+        type: string,
+        referenceFunction: Function
     }[]
   }
 
@@ -43,15 +44,15 @@ export default class TemplateHandler{
         this.intial = false;
     }
     removeListeners(){
-        if(this.templateObj && this.templateObj!.listeners.length>0){
-            this.templateObj.listeners.forEach(l=>{
-                document.getEventListeners(l.element)[l.type].forEach(o=>{
-                    console.log(o);
-                }
-                    // function(o:any) { o.remove(); }
-                 ); 
-            })
-        }
+        // if(this.templateObj && this.templateObj!.listeners.length>0){
+        //     this.templateObj.listeners.forEach(l=>{
+        //         document.getEventListeners(l.element)[l.type].forEach(o=>{
+        //             console.log(o);
+        //         }
+        //             // function(o:any) { o.remove(); }
+        //          ); 
+        //     })
+        // }
     }
     pageRelatedMethods(){
         if(window.location.hash === '#projects'){
