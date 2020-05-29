@@ -1,14 +1,10 @@
-interface listenerObj{
-    element: HTMLElement|Document,
-    type: string,
-    referenceFunction: (e: any) => void
-}
+import {ThemeInterface, listenerInterface} from '../interfaces/ThemeInterface.js';
 
-export default class Theme{
+export default class Theme implements ThemeInterface{
     links: NodeListOf<HTMLLinkElement>;
     container: HTMLDivElement | null;
     goto: string;
-    listeners: listenerObj[];
+    listeners: listenerInterface[];
     constructor(){
         this.links = document.querySelectorAll('nav ul a');
         this.container = document.querySelector('#app .content');
