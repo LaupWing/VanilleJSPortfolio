@@ -1,7 +1,7 @@
 interface listenerObj{
     element: HTMLElement|Document,
     type: string,
-    referenceFunction: Function
+    referenceFunction: (e: Event) => void
 }
 
 export default class Theme{

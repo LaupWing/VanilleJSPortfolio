@@ -9,7 +9,7 @@ interface TemplateObj {
     listeners: {
         element: HTMLElement|Document,
         type: string,
-        referenceFunction: Function
+        referenceFunction: (e: Event|MouseEvent) => void
     }[]
   }
 
