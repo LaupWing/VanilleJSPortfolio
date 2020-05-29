@@ -9,7 +9,7 @@ interface TemplateObj {
     listeners: {
         element: HTMLElement|Document,
         type: string,
-        referenceFunction: (e: Event|MouseEvent) => void
+        referenceFunction: (e:any)=> void
     }[]
   }
 
@@ -47,7 +47,7 @@ export default class TemplateHandler{
         if(this.templateObj && this.templateObj!.listeners.length>0){
             this.templateObj.listeners.forEach(l=>{
                 console.log(l); 
-                l.element.removeEventListener(l.type, l.referenceFunction);
+                l.element.removeEventListener(l.type, l.referenceFunction)
             })
         }
     }
