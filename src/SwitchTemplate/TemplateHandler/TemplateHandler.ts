@@ -29,6 +29,7 @@ export default class TemplateHandler{
     }
     setTemplate(){
         this.resetLinks();
+        this.removeListeners();
         if(this.active === 'clean'){
             this.templateObj = new Clean();
         }else{
@@ -40,6 +41,17 @@ export default class TemplateHandler{
         }
         console.log(this.templateObj.listeners)
         this.intial = false;
+    }
+    removeListeners(){
+        if(this.templateObj && this.templateObj!.listeners.length>0){
+            this.templateObj.listeners.forEach(l=>{
+                document.getEventListeners(l.element)[l.type].forEach(o=>{
+                    console.log(o);
+                }
+                    // function(o:any) { o.remove(); }
+                 ); 
+            })
+        }
     }
     pageRelatedMethods(){
         if(window.location.hash === '#projects'){
