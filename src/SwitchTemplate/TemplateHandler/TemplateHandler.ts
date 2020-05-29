@@ -1,20 +1,9 @@
 import Clean from "../../themed_scripts/clean/main.js";
 import ThreeD from "../../themed_scripts/threed/main.js";
-
-interface TemplateObj {
-    applyListenerContainer: Function
-    toggleLinks: Function
-    handleLink: Function
-    projects?: Function
-    listeners: {
-        element: HTMLElement|Document,
-        type: string,
-        referenceFunction: (e:any)=> void
-    }[]
-  }
+import {templateInterface} from '../../interfaces/interfaces';
 
 export default class TemplateHandler{
-    templateObj:TemplateObj|null;
+    templateObj:templateInterface|null;
     active: string;
     intial: boolean;
     constructor(active:string){

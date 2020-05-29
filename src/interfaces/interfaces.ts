@@ -14,3 +14,11 @@ export interface ThemeInterface{
     applyListenerLinks():void;
     applyListenerContainer():void;
 }
+
+export interface templateInterface {
+    applyListenerContainer: Function
+    toggleLinks: Function
+    handleLink: Function
+    projects?: Function
+    listeners: listenerInterface[]
+}
