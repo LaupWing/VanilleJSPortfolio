@@ -8,17 +8,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 export default class Router {
-    // template: 
     constructor(routes, cb) {
         this.root = document.getElementById('app');
         this.routes = routes;
         this.cb = cb;
         window.addEventListener('hashchange', (e) => {
-            this.hashChanged();
+            this.checkHash();
         });
-        this.hashChanged();
+        this.checkHash();
     }
-    hashChanged() {
+    checkHash() {
         const currentHash = window.location.hash;
         if (currentHash.length > 0) {
             const activeRoute = this.routes.find(x => x.isActive(currentHash));

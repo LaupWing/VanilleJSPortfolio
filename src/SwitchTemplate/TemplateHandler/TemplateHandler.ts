@@ -18,8 +18,8 @@ export default class TemplateHandler{
         old_element.parentNode!.replaceChild(new_element, old_element);
     }
     setTemplate(){
-        // this.resetLinks();
         this.removeListeners();
+        this.resetAllContentStyling();
         if(this.active === 'clean'){
             this.templateObj = new Clean();
         }else{
@@ -29,13 +29,11 @@ export default class TemplateHandler{
             this.templateObj.applyListenerContainer();
             this.pageRelatedMethods();
         }
-        console.log(this.templateObj.listeners)
         this.intial = false;
     }
     removeListeners(){
         if(this.templateObj && this.templateObj!.listeners.length>0){
             this.templateObj.listeners.forEach(l=>{
-                console.log(l);
                 l.element.removeEventListener(l.type, l.referenceFunction)
             })
         }
@@ -45,6 +43,16 @@ export default class TemplateHandler{
             if(this.templateObj?.projects){
                 this.templateObj.projects();
             }
+        }
+    }
+    resetAllContentStyling(){
+        const allElemtentsInContainer = document.querySelector('.content')?.querySelectorAll("*");
+        if(allElemtentsInContainer!?.length>0){
+            allElemtentsInContainer?.forEach(el=>{
+                if(el.getAttribute('style')){
+                    el.removeAttribute('style');
+                }
+            });
         }
     }
 }

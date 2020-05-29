@@ -13,8 +13,8 @@ export default class TemplateHandler {
         old_element.parentNode.replaceChild(new_element, old_element);
     }
     setTemplate() {
-        // this.resetLinks();
         this.removeListeners();
+        this.resetAllContentStyling();
         if (this.active === 'clean') {
             this.templateObj = new Clean();
         }
@@ -25,13 +25,11 @@ export default class TemplateHandler {
             this.templateObj.applyListenerContainer();
             this.pageRelatedMethods();
         }
-        console.log(this.templateObj.listeners);
         this.intial = false;
     }
     removeListeners() {
         if (this.templateObj && this.templateObj.listeners.length > 0) {
             this.templateObj.listeners.forEach(l => {
-                console.log(l);
                 l.element.removeEventListener(l.type, l.referenceFunction);
             });
         }
@@ -42,6 +40,17 @@ export default class TemplateHandler {
             if ((_a = this.templateObj) === null || _a === void 0 ? void 0 : _a.projects) {
                 this.templateObj.projects();
             }
+        }
+    }
+    resetAllContentStyling() {
+        var _a, _b;
+        const allElemtentsInContainer = (_a = document.querySelector('.content')) === null || _a === void 0 ? void 0 : _a.querySelectorAll("*");
+        if (((_b = allElemtentsInContainer) === null || _b === void 0 ? void 0 : _b.length) > 0) {
+            allElemtentsInContainer === null || allElemtentsInContainer === void 0 ? void 0 : allElemtentsInContainer.forEach(el => {
+                if (el.getAttribute('style')) {
+                    el.removeAttribute('style');
+                }
+            });
         }
     }
 }
