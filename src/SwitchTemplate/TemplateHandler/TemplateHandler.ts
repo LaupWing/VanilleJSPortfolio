@@ -18,7 +18,7 @@ export default class TemplateHandler{
         old_element.parentNode!.replaceChild(new_element, old_element);
     }
     setTemplate(){
-        this.resetLinks();
+        // this.resetLinks();
         this.removeListeners();
         if(this.active === 'clean'){
             this.templateObj = new Clean();
@@ -35,7 +35,7 @@ export default class TemplateHandler{
     removeListeners(){
         if(this.templateObj && this.templateObj!.listeners.length>0){
             this.templateObj.listeners.forEach(l=>{
-                console.log(l); 
+                console.log(l);
                 l.element.removeEventListener(l.type, l.referenceFunction)
             })
         }

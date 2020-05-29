@@ -19,8 +19,9 @@ export default class Theme implements ThemeInterface{
             this.links.forEach(link=>link.classList.remove('disabled'));
         }
     }
-    handleLink(e:Event){
+    handleLink = (e:Event)=>{
         e.preventDefault();
+        console.log('click');
         const clickedLink = e.target as HTMLLinkElement;
         const newLocation = clickedLink.href;
         if(this.goto === newLocation){
@@ -31,6 +32,15 @@ export default class Theme implements ThemeInterface{
         this.goto = newLocation;
         this.container!.classList.add('dissappear');
         this.toggleLinks('add');
+    }
+    handleAnimEndContainer= (e:Event)=>{
+        const el = e.target as HTMLDivElement;
+        if(el.classList.contains('appear')){
+            el.classList.remove('appear');
+            this.toggleLinks('remove');
+        }else{
+            window.location.href = this.goto!;
+        }
     }
     applyListenerLinks(){
         this.links.forEach(link=>{
@@ -46,9 +56,9 @@ export default class Theme implements ThemeInterface{
             this.listeners.push({
                 element: link,
                 type: 'click',
-                referenceFunction: this.applyListenerLinks
+                referenceFunction: this.handleLink
             });
-            link.addEventListener('click', this.handleLink.bind(this));
+            link.addEventListener('click', this.handleLink);
         });
     }
     applyListenerContainer(){
@@ -56,17 +66,9 @@ export default class Theme implements ThemeInterface{
         this.listeners.push({
             element: this.container,
             type: 'animationend',
-            referenceFunction:this.applyListenerContainer 
+            referenceFunction:this.handleAnimEndContainer 
         });
 
-        this.container!.addEventListener('animationend', (e)=>{
-            const el = e.target as HTMLDivElement;
-            if(el.classList.contains('appear')){
-                el.classList.remove('appear');
-                this.toggleLinks('remove');
-            }else{
-                window.location.href = this.goto!;
-            }
-        });
+        this.container!.addEventListener('animationend', this.handleAnimEndContainer);
     }
 }

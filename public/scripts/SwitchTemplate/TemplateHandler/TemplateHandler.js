@@ -13,7 +13,7 @@ export default class TemplateHandler {
         old_element.parentNode.replaceChild(new_element, old_element);
     }
     setTemplate() {
-        this.resetLinks();
+        // this.resetLinks();
         this.removeListeners();
         if (this.active === 'clean') {
             this.templateObj = new Clean();
