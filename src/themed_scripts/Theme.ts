@@ -1,4 +1,4 @@
-import {ThemeInterface, listenerInterface} from '../interfaces/ThemeInterface.js';
+import {ThemeInterface, listenerInterface} from '../interfaces/interfaces.js';
 
 export default class Theme implements ThemeInterface{
     links: NodeListOf<HTMLLinkElement>;
