@@ -7,11 +7,6 @@ export default class TemplateHandler {
         this.intial = true;
         this.setTemplate();
     }
-    resetLinks() {
-        const old_element = document.querySelector('nav ul');
-        const new_element = old_element.cloneNode(true);
-        old_element.parentNode.replaceChild(new_element, old_element);
-    }
     setTemplate() {
         this.removeListeners();
         this.resetAllContentStyling();
