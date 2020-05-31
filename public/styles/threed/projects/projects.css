@@ -18,6 +18,30 @@
     transform: translateZ(0);
     transform-style: preserve-3d;
 }
+
+#threed .projects .project.active h3{
+    animation: fromDown 1s forwards;
+}
+
+#threed .projects .project.active img{
+    animation: scaleDown 1s forwards;
+    animation-delay: 1s;
+    transform: scaleY(0);
+    transform-origin: top;
+}
+
+@keyframes scaleDown{
+    to{
+        transform: scaleY(1);
+    }
+}
+@keyframes fromDown{
+    from{
+        margin-top: 100vh;
+    }to{
+        margin-top: initial;
+    }
+}
     
 
 #threed .projects .project img{
