@@ -3,3 +3,26 @@
     overflow-y: scroll;
     padding: 20px;
 }
+
+/* width */
+#clean .projects::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 10px;
+}
+
+/* Track */
+#clean .projects::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 10px;
+}
+
+/* Handle */
+#clean .projects::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+#clean .projects::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
