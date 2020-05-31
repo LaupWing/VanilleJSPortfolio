@@ -1,4 +1,5 @@
 import Theme from '../Theme.js';
+import getProminentColor from '../../utils/getProminentColor.js';
 export default class ThreeD extends Theme {
     constructor() {
         super();
@@ -12,6 +13,9 @@ export default class ThreeD extends Theme {
             const ay = (window.innerHeight / 2 - e.pageY) / 10;
             activeProject.style.transform = "rotateY(" + ax + "deg) rotateX(" + ay + "deg)";
         };
+        const color = getProminentColor(activeProject.querySelector('img'));
+        console.log(color);
+        document.body.style.background = `rgb(${color.r},${color.g},${color.b})`;
         this.listeners.push({
             element: document,
             type: 'mousemove',

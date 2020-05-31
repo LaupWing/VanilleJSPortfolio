@@ -24,6 +24,7 @@
     width: 70%;
     grid-row: 1;
     margin: auto;
+    border: solid 1px var(--highlight-color);
     grid-column: 2;
 }
 #threed .projects .project .project-info{
