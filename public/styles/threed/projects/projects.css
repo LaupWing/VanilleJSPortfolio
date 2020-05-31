@@ -10,6 +10,7 @@
 }
 #threed .projects .project{
     display: none;
+    transition: .1s transform;
 }
 #threed .projects .project.active{
     display: grid;
@@ -33,6 +34,11 @@
 @keyframes scaleDown{
     to{
         transform: scaleY(1);
+    }
+}
+@keyframes opacityIn{
+    to{
+        opacity: 1;
     }
 }
 @keyframes fromDown{
@@ -72,8 +78,7 @@
     margin-top: 20px;
     max-width: 300px;
     width: 80%;
-    animation: scaleDown 1s forwards;
+    animation: opacityIn 1s forwards;
     animation-delay: 2s;
-    transform: scaleY(0);
-    transform-origin: top;
+    opacity: 0;
 }
