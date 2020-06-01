@@ -16,7 +16,6 @@ export default class ThreeD extends Theme {
         const description = activeProject.querySelector('.project-info p');
         description === null || description === void 0 ? void 0 : description.addEventListener('animationend', () => {
             const color = getProminentColor(activeProject.querySelector('img'));
-            console.log(color);
             document.body.style.background = `rgb(${color.r},${color.g},${color.b})`;
             this.listeners.push({
                 element: document,

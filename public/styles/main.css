@@ -37,3 +37,7 @@ main{
 nav{
     transition: var(--page-transition);
 }
+
+.content .buttons{
+    display: none;
+}

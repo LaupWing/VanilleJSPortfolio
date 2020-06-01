@@ -82,3 +82,23 @@
     animation-delay: 2s;
     opacity: 0;
 }
+#threed .buttons{
+    display: flex;
+    justify-content: center;
+}
+#threed .buttons button{
+    width: 100px;
+    padding: 5px 0;
+    margin: 0 5px;
+    border: solid 2px var(--highlight-color);
+    color: var(--highlight-color);
+    background: transparent;
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+#threed .buttons button:hover{
+    color: var(--background-color);
+    background: var(--highlight-color);
+}
