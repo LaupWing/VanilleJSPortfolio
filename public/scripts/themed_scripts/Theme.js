@@ -34,8 +34,9 @@ export default class Theme {
     }
     setGloblalCSSVars(globalCssVars) {
         const container = document.getElementById(this.theme);
-        console.log(globalCssVars);
-        console.log(container === null || container === void 0 ? void 0 : container.style);
+        for (let key in globalCssVars) {
+            container === null || container === void 0 ? void 0 : container.style.setProperty(key, globalCssVars[key]);
+        }
     }
     toggleLinks(state) {
         if (state === 'add') {

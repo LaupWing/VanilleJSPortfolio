@@ -17,8 +17,9 @@ export default class Theme implements ThemeInterface{
     }
     setGloblalCSSVars(globalCssVars:object){
         const container = document.getElementById(this.theme);
-        console.log(globalCssVars);
-        console.log(container?.style);
+        for(let key in globalCssVars){
+            container?.style.setProperty(key, globalCssVars[key]!)
+        }
     }
     toggleLinks(state:string){
         if(state === 'add'){
