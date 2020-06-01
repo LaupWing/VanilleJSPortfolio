@@ -41,3 +41,7 @@ nav{
 .content .buttons{
     display: none;
 }
+
+button{
+    cursor: pointer;
+}

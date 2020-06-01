@@ -2,8 +2,10 @@ import Theme from '../Theme.js';
 import getProminentColor from '../../utils/getProminentColor.js';
 
 export default class ThreeD extends Theme{
+    body:HTMLBodyElement
     constructor(){
         super();
+        this.body = document.getElementById('threed') as HTMLBodyElement;
     }
     projects(){
         const projects = document.querySelectorAll('.project') as NodeListOf<HTMLDivElement>;
@@ -18,7 +20,8 @@ export default class ThreeD extends Theme{
         const description = activeProject.querySelector('.project-info p');
         description?.addEventListener('animationend', ()=>{
             const color = getProminentColor(activeProject.querySelector('img')!);
-            document.body.style.background = `rgb(${color.r},${color.g},${color.b})`
+            this.body.style.setProperty('--background-color',`rgb(${color.r},${color.g},${color.b})`);
+
             this.listeners.push({
                element: document,
                type: 'mousemove' ,
