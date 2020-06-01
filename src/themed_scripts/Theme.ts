@@ -5,12 +5,20 @@ export default class Theme implements ThemeInterface{
     container: HTMLDivElement | null;
     goto: string;
     listeners: listenerInterface[];
-    constructor(){
+    theme:string;
+    constructor(theme:string,globalCssVars:object){
         this.links = document.querySelectorAll('nav ul a');
         this.container = document.querySelector('#app .content');
         this.goto= window.location.href;
         this.listeners = [];
+        this.theme = theme;
         this.applyListenerLinks();
+        this.setGloblalCSSVars(globalCssVars);
+    }
+    setGloblalCSSVars(globalCssVars:object){
+        const container = document.getElementById(this.theme);
+        console.log(globalCssVars);
+        console.log(container?.style);
     }
     toggleLinks(state:string){
         if(state === 'add'){

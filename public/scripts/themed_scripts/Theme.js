@@ -1,5 +1,5 @@
 export default class Theme {
-    constructor() {
+    constructor(theme, globalCssVars) {
         this.handleLink = (e) => {
             e.preventDefault();
             console.log('click');
@@ -28,7 +28,14 @@ export default class Theme {
         this.container = document.querySelector('#app .content');
         this.goto = window.location.href;
         this.listeners = [];
+        this.theme = theme;
         this.applyListenerLinks();
+        this.setGloblalCSSVars(globalCssVars);
+    }
+    setGloblalCSSVars(globalCssVars) {
+        const container = document.getElementById(this.theme);
+        console.log(globalCssVars);
+        console.log(container === null || container === void 0 ? void 0 : container.style);
     }
     toggleLinks(state) {
         if (state === 'add') {
