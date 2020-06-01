@@ -1,4 +1,4 @@
-import {ThemeInterface, listenerInterface} from '../interfaces/interfaces.js';
+import {ThemeInterface, listenerInterface, globalCssVarsInterace} from '../interfaces/interfaces.js';
 
 export default class Theme implements ThemeInterface{
     links: NodeListOf<HTMLLinkElement>;
@@ -6,19 +6,19 @@ export default class Theme implements ThemeInterface{
     goto: string;
     listeners: listenerInterface[];
     theme:string;
-    constructor(theme:string,globalCssVars:object){
+    constructor(theme:string, globalCssVars:globalCssVarsInterace){
         this.links = document.querySelectorAll('nav ul a');
         this.container = document.querySelector('#app .content');
         this.goto= window.location.href;
         this.listeners = [];
         this.theme = theme;
         this.applyListenerLinks();
-        this.setGloblalCSSVars(globalCssVars);
+        this.setGloblalCSSVars(globalCssVars as globalCssVarsInterace);
     }
-    setGloblalCSSVars(globalCssVars:object){
+    setGloblalCSSVars(globalCssVars:globalCssVarsInterace){
         const container = document.getElementById(this.theme);
         for(let key in globalCssVars){
-            container?.style.setProperty(key, globalCssVars[key]!)
+            container?.style.setProperty(key, globalCssVars[key])
         }
     }
     toggleLinks(state:string){

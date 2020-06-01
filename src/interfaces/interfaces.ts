@@ -22,3 +22,9 @@ export interface templateInterface {
     projects?: Function
     listeners: listenerInterface[]
 }
+
+export interface globalCssVarsInterace{
+    '--background-color': string,
+    '--highlight-color': string,
+    '--main-font-color': string
+}
