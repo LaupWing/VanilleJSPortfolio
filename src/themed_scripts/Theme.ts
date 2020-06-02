@@ -15,7 +15,7 @@ export default class Theme implements ThemeInterface{
         this.applyListenerLinks();
         this.setGloblalCSSVars(globalCssVars as globalCssVarsInterace);
     }
-    setGloblalCSSVars(globalCssVars:globalCssVarsInterace){
+    setGloblalCSSVars(globalCssVars: {[k: string]: any} = {}){
         const container = document.getElementById(this.theme);
         for(let key in globalCssVars){
             container?.style.setProperty(key, globalCssVars[key])
