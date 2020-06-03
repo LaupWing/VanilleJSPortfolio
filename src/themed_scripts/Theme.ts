@@ -1,19 +1,19 @@
-import {ThemeInterface, listenerInterface, globalCssVarsInterace} from '../interfaces/interfaces.js';
+import {isTheme, isListener, isGlobalCss} from '../interfaces/interfaces.js';
 
-export default class Theme implements ThemeInterface{
+export default class Theme implements isTheme{
     links: NodeListOf<HTMLLinkElement>;
     container: HTMLDivElement | null;
     goto: string;
-    listeners: listenerInterface[];
+    listeners: isListener[];
     theme:string;
-    constructor(theme:string, globalCssVars:globalCssVarsInterace){
+    constructor(theme:string, globalCssVars:isGlobalCss){
         this.links = document.querySelectorAll('nav ul a');
         this.container = document.querySelector('#app .content');
         this.goto= window.location.href;
         this.listeners = [];
         this.theme = theme;
         this.applyListenerLinks();
-        this.setGloblalCSSVars(globalCssVars as globalCssVarsInterace);
+        this.setGloblalCSSVars(globalCssVars as isGlobalCss);
     }
     setGloblalCSSVars(globalCssVars: {[k: string]: any} = {}){
         const container = document.getElementById(this.theme);

@@ -1,9 +1,9 @@
 import Clean from "../../themed_scripts/clean/main.js";
 import ThreeD from "../../themed_scripts/threed/main.js";
-import {templateInterface} from '../../interfaces/interfaces';
+import {isTemplate} from '../../interfaces/interfaces';
 
 export default class TemplateHandler{
-    templateObj:templateInterface|null;
+    templateObj:isTemplate|null;
     active: string;
     intial: boolean;
     constructor(active:string){
