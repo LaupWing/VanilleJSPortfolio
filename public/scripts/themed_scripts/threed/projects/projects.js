@@ -6,6 +6,18 @@ export default class Projects {
         this.body = body;
         this.current = 0;
         this.projectListeners = [];
+        this.listeners = listeners;
+        this.init();
+    }
+    init() {
+        this.setActiveProject();
+        const description = this.activeProject.querySelector('.project-info p');
+        this.addListener({
+            element: description,
+            type: 'animationend',
+            referenceFunction: this.descriptionAnimEnded
+        });
+        description === null || description === void 0 ? void 0 : description.addEventListener('animationend', this.descriptionAnimEnded);
     }
     setActiveProject() {
         this.projects.forEach(project => project.classList.remove('active'));
@@ -20,16 +32,15 @@ export default class Projects {
     descriptionAnimEnded() {
         const color = getProminentColor(this.activeProject.querySelector('img'));
         this.body.style.setProperty('--background-color', `rgb(${color.r},${color.g},${color.b})`);
-        // this.projectListeners.push({
-        //    element: document,
-        //    type: 'mousemove' ,
-        //    referenceFunction: move 
-        // });
+        this.addListener({
+            element: document,
+            type: 'mousemove',
+            referenceFunction: this.move
+        });
         document.addEventListener('mousemove', this.move);
     }
-    placeholder() {
-        const description = this.activeProject.querySelector('.project-info p');
-        description === null || description === void 0 ? void 0 : description.addEventListener('animationend', () => {
-        });
+    addListener(listener) {
+        this.projectListeners.push(listener);
+        this.listeners.push(listener);
     }
 }
