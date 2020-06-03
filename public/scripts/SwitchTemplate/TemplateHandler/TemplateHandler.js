@@ -23,6 +23,8 @@ export default class TemplateHandler {
         this.intial = false;
     }
     removeListeners() {
+        var _a;
+        console.log((_a = this.templateObj) === null || _a === void 0 ? void 0 : _a.listeners);
         if (this.templateObj && this.templateObj.listeners.length > 0) {
             this.templateObj.listeners.forEach(l => {
                 l.element.removeEventListener(l.type, l.referenceFunction);
