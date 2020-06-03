@@ -1,7 +1,9 @@
+import getProminentColor from '../../../utils/getProminentColor.js';
 export default class Projects {
-    constructor(listeners) {
+    constructor(listeners, body) {
         this.projects = document.querySelectorAll('.project');
         this.activeProject = null;
+        this.body = body;
         this.current = 0;
         this.projectListeners = [];
     }
@@ -16,18 +18,18 @@ export default class Projects {
         this.activeProject.style.transform = "rotateY(" + ax + "deg) rotateX(" + ay + "deg)";
     }
     descriptionAnimEnded() {
+        const color = getProminentColor(this.activeProject.querySelector('img'));
+        this.body.style.setProperty('--background-color', `rgb(${color.r},${color.g},${color.b})`);
+        // this.projectListeners.push({
+        //    element: document,
+        //    type: 'mousemove' ,
+        //    referenceFunction: move 
+        // });
+        document.addEventListener('mousemove', this.move);
     }
     placeholder() {
-        // const description = this.activeProject.querySelector('.project-info p');
-        // description?.addEventListener('animationend', ()=>{
-        //     const color = getProminentColor(activeProject.querySelector('img')!);
-        //     this.body.style.setProperty('--background-color',`rgb(${color.r},${color.g},${color.b})`);
-        //     this.listeners.push({
-        //        element: document,
-        //        type: 'mousemove' ,
-        //        referenceFunction: move 
-        //     });
-        //     document.addEventListener('mousemove', move);
-        // })
+        const description = this.activeProject.querySelector('.project-info p');
+        description === null || description === void 0 ? void 0 : description.addEventListener('animationend', () => {
+        });
     }
 }

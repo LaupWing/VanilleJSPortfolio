@@ -9,7 +9,7 @@ export default class ThreeD extends Theme {
             '--main-font-color': 'white'
         });
         this.body = document.getElementById('threed');
-        new Projects(this.listeners);
+        new Projects(this.listeners, this.body);
     }
     projects() {
         const projects = document.querySelectorAll('.project');

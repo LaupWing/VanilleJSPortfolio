@@ -14,7 +14,7 @@ export default class ThreeD extends Theme{
             }
         );
         this.body = document.getElementById('threed') as HTMLBodyElement;
-        new Projects(this.listeners);
+        new Projects(this.listeners, this.body);
     }
     projects(){
         const projects = document.querySelectorAll('.project') as NodeListOf<HTMLDivElement>;
