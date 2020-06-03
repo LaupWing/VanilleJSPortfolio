@@ -23,13 +23,14 @@ export default class Projects{
         this.addListener({
             element: description as HTMLElement,
             type: 'animationend' ,
-            referenceFunction: this.descriptionAnimEnded 
+            referenceFunction: this.descriptionAnimEnded.bind(this) 
          });
-        description?.addEventListener('animationend', this.descriptionAnimEnded);
+        description?.addEventListener('animationend', this.descriptionAnimEnded.bind(this));
     }
     setActiveProject(){
         this.projects.forEach(project=>project.classList.remove('active'));
         this.activeProject = this.projects[this.current];
+        console.log(this.activeProject);
         this.activeProject.classList.add('active');
     }
     move(e:MouseEvent){
@@ -44,10 +45,10 @@ export default class Projects{
         this.addListener({
            element: document,
            type: 'mousemove' ,
-           referenceFunction: this.move 
+           referenceFunction: this.move.bind(this)
         });
     
-        document.addEventListener('mousemove', this.move);
+        document.addEventListener('mousemove', this.move.bind(this));
     }
     addListener(listener:isListener){
         this.projectListeners.push(listener);
