@@ -2,10 +2,13 @@ export default class Projects{
     projects:NodeListOf<HTMLDivElement>;
     current:number;
     activeProject:HTMLDivElement|null;
-    constructor(){
+    projectListeners:[];
+    constructor(test:any){
         this.projects = document.querySelectorAll('.project');
         this.activeProject = null;
         this.current = 0;
+        this.projectListeners =[];
+        console.log(test);
     }
     setActiveProject(){
         this.projects.forEach(project=>project.classList.remove('active'));

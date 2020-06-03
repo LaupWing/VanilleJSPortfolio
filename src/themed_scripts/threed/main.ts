@@ -1,5 +1,6 @@
 import Theme from '../Theme.js';
 import getProminentColor from '../../utils/getProminentColor.js';
+import Projects from './Projects/Projects.js';
 
 export default class ThreeD extends Theme{
     body:HTMLBodyElement
@@ -13,6 +14,7 @@ export default class ThreeD extends Theme{
             }
         );
         this.body = document.getElementById('threed') as HTMLBodyElement;
+        new Projects(this.listeners);
     }
     projects(){
         const projects = document.querySelectorAll('.project') as NodeListOf<HTMLDivElement>;

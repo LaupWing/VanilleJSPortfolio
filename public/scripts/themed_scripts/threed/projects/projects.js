@@ -1,8 +1,10 @@
 export default class Projects {
-    constructor() {
+    constructor(test) {
         this.projects = document.querySelectorAll('.project');
         this.activeProject = null;
         this.current = 0;
+        this.projectListeners = [];
+        console.log(test);
     }
     setActiveProject() {
         this.projects.forEach(project => project.classList.remove('active'));

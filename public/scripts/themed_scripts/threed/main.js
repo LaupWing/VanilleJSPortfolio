@@ -1,5 +1,6 @@
 import Theme from '../Theme.js';
 import getProminentColor from '../../utils/getProminentColor.js';
+import Projects from './Projects/Projects.js';
 export default class ThreeD extends Theme {
     constructor() {
         super('threed', {
@@ -8,6 +9,7 @@ export default class ThreeD extends Theme {
             '--main-font-color': 'white'
         });
         this.body = document.getElementById('threed');
+        new Projects(this.listeners);
     }
     projects() {
         const projects = document.querySelectorAll('.project');
