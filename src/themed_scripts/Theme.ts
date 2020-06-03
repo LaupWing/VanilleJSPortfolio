@@ -30,7 +30,6 @@ export default class Theme implements ThemeInterface{
     }
     handleLink = (e:Event)=>{
         e.preventDefault();
-        console.log('click');
         const clickedLink = e.target as HTMLLinkElement;
         const newLocation = clickedLink.href;
         if(this.goto === newLocation){

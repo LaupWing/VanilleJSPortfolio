@@ -2,7 +2,6 @@ export default class Theme {
     constructor(theme, globalCssVars) {
         this.handleLink = (e) => {
             e.preventDefault();
-            console.log('click');
             const clickedLink = e.target;
             const newLocation = clickedLink.href;
             if (this.goto === newLocation) {
@@ -32,7 +31,7 @@ export default class Theme {
         this.applyListenerLinks();
         this.setGloblalCSSVars(globalCssVars);
     }
-    setGloblalCSSVars(globalCssVars) {
+    setGloblalCSSVars(globalCssVars = {}) {
         const container = document.getElementById(this.theme);
         for (let key in globalCssVars) {
             container === null || container === void 0 ? void 0 : container.style.setProperty(key, globalCssVars[key]);
