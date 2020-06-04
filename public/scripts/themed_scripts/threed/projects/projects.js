@@ -8,6 +8,7 @@ export default class Projects {
         };
         this.projectSwitcher = (e) => {
             const targetClass = e.target.classList[0];
+            this.projects[this.current].classList.add('dissappear');
             if (targetClass === 'next') {
                 if (this.current < this.projects.length) {
                     this.current += 1;
@@ -27,7 +28,6 @@ export default class Projects {
                 type: 'mousemove',
                 referenceFunction: this.move
             });
-            document.addEventListener('mousemove', this.move);
         };
         this.projects = document.querySelectorAll('.project');
         this.activeProject = null;
@@ -46,7 +46,6 @@ export default class Projects {
             referenceFunction: this.descriptionAnimEnded
         });
         this.buttonEvents();
-        description === null || description === void 0 ? void 0 : description.addEventListener('animationend', this.descriptionAnimEnded);
     }
     setActiveProject() {
         this.projects.forEach(project => project.classList.remove('active'));
@@ -66,10 +65,9 @@ export default class Projects {
             type: 'click',
             referenceFunction: this.projectSwitcher
         });
-        prevBtn === null || prevBtn === void 0 ? void 0 : prevBtn.addEventListener('click', this.projectSwitcher);
-        nextBtn === null || nextBtn === void 0 ? void 0 : nextBtn.addEventListener('click', this.projectSwitcher);
     }
     addListener(listener) {
+        listener.element.addEventListener(listener.type, listener.referenceFunction);
         this.projectListeners.push(listener);
         this.listeners.push(listener);
     }

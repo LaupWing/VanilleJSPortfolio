@@ -26,7 +26,6 @@ export default class Projects{
             referenceFunction: this.descriptionAnimEnded 
          });
          this.buttonEvents();
-        description?.addEventListener('animationend', this.descriptionAnimEnded);
     }
     setActiveProject(){
         this.projects.forEach(project=>project.classList.remove('active'));
@@ -46,18 +45,16 @@ export default class Projects{
             element: prevBtn,
             type: 'click',
             referenceFunction: this.projectSwitcher
-         });
-         this.addListener({
+        });
+        this.addListener({
             element: nextBtn,
             type: 'click',
             referenceFunction: this.projectSwitcher
-         });
-         
-        prevBtn?.addEventListener('click', this.projectSwitcher);
-        nextBtn?.addEventListener('click', this.projectSwitcher);
+        });
     }
     projectSwitcher = (e:MouseEvent)=>{
         const targetClass = (<HTMLButtonElement>e.target).classList[0];
+        this.projects[this.current].classList.add('dissappear');
         if(targetClass === 'next'){
             if(this.current < this.projects.length){
                 this.current += 1;
@@ -77,10 +74,9 @@ export default class Projects{
            type: 'mousemove',
            referenceFunction: this.move
         });
-    
-        document.addEventListener('mousemove', this.move);
     }
     addListener(listener:isListener){
+        listener.element.addEventListener(listener.type, listener.referenceFunction);
         this.projectListeners.push(listener);
         this.listeners.push(listener);
     }

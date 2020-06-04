@@ -19,6 +19,9 @@
     transform: translateZ(0);
     transform-style: preserve-3d;
 }
+#threed .projects .project.active.dissappear{
+    animation: fadeAway 1s forwards;
+}
 
 #threed .projects .project.active h3{
     animation: fromDown 1s forwards;
@@ -31,6 +34,11 @@
     transform-origin: top;
 }
 
+@keyframes fadeAway{
+    to{
+        opacity: 0;
+    }
+}
 @keyframes scaleDown{
     to{
         transform: scaleY(1);
