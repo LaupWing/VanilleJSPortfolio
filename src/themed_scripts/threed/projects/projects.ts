@@ -25,6 +25,7 @@ export default class Projects{
             type: 'animationend' ,
             referenceFunction: this.descriptionAnimEnded 
          });
+         this.buttonEvents();
         description?.addEventListener('animationend', this.descriptionAnimEnded);
     }
     setActiveProject(){
@@ -36,6 +37,33 @@ export default class Projects{
         const ax = -(window.innerWidth/2- e.pageX)/20;
         const ay = (window.innerHeight/2- e.pageY)/10;
         this.activeProject!.style.transform = "rotateY("+ax+"deg) rotateX("+ay+"deg)"
+    }
+    buttonEvents(){
+        const prevBtn = this.body.querySelector('button.prev') as HTMLButtonElement;
+        const nextBtn = this.body.querySelector('button.next') as HTMLButtonElement;
+
+        this.addListener({
+            element: prevBtn,
+            type: 'click',
+            referenceFunction: this.projectSwitcher
+         });
+         this.addListener({
+            element: nextBtn,
+            type: 'click',
+            referenceFunction: this.projectSwitcher
+         });
+         
+        prevBtn?.addEventListener('click', this.projectSwitcher);
+        nextBtn?.addEventListener('click', this.projectSwitcher);
+    }
+    projectSwitcher = (e:MouseEvent)=>{
+        const targetClass = (<HTMLButtonElement>e.target).classList[0];
+        
+        if(targetClass === 'next'){
+            this.current += 1;
+        }else{
+            this.current -= 1;
+        }
     }
     descriptionAnimEnded = ()=>{
         const color = getProminentColor(this.activeProject!.querySelector('img')!);

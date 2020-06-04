@@ -44,4 +44,5 @@ nav{
 
 button{
     cursor: pointer;
+    outline: none;
 }
