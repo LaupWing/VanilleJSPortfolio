@@ -33,7 +33,7 @@ export default class Projects{
         console.log(this.activeProject);
         this.activeProject.classList.add('active');
     }
-    move(e:MouseEvent){
+    move=(e:MouseEvent)=>{
         const ax = -(window.innerWidth/2- e.pageX)/20;
         const ay = (window.innerHeight/2- e.pageY)/10;
         this.activeProject!.style.transform = "rotateY("+ax+"deg) rotateX("+ay+"deg)"
@@ -41,14 +41,14 @@ export default class Projects{
     descriptionAnimEnded(){
         const color = getProminentColor(this.activeProject!.querySelector('img')!);
         this.body.style.setProperty('--background-color',`rgb(${color.r},${color.g},${color.b})`);
-    
+
         this.addListener({
            element: document,
-           type: 'mousemove' ,
-           referenceFunction: this.move.bind(this)
+           type: 'mousemove',
+           referenceFunction: this.move
         });
     
-        document.addEventListener('mousemove', this.move.bind(this));
+        document.addEventListener('mousemove', this.move);
     }
     addListener(listener:isListener){
         this.projectListeners.push(listener);

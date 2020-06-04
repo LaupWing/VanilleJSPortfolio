@@ -1,6 +1,11 @@
 import getProminentColor from '../../../utils/getProminentColor.js';
 export default class Projects {
     constructor(listeners, body) {
+        this.move = (e) => {
+            const ax = -(window.innerWidth / 2 - e.pageX) / 20;
+            const ay = (window.innerHeight / 2 - e.pageY) / 10;
+            this.activeProject.style.transform = "rotateY(" + ax + "deg) rotateX(" + ay + "deg)";
+        };
         this.projects = document.querySelectorAll('.project');
         this.activeProject = null;
         this.body = body;
@@ -25,20 +30,15 @@ export default class Projects {
         console.log(this.activeProject);
         this.activeProject.classList.add('active');
     }
-    move(e) {
-        const ax = -(window.innerWidth / 2 - e.pageX) / 20;
-        const ay = (window.innerHeight / 2 - e.pageY) / 10;
-        this.activeProject.style.transform = "rotateY(" + ax + "deg) rotateX(" + ay + "deg)";
-    }
     descriptionAnimEnded() {
         const color = getProminentColor(this.activeProject.querySelector('img'));
         this.body.style.setProperty('--background-color', `rgb(${color.r},${color.g},${color.b})`);
         this.addListener({
             element: document,
             type: 'mousemove',
-            referenceFunction: this.move.bind(this)
+            referenceFunction: this.move
         });
-        document.addEventListener('mousemove', this.move.bind(this));
+        document.addEventListener('mousemove', this.move);
     }
     addListener(listener) {
         this.projectListeners.push(listener);
