@@ -23,22 +23,21 @@ export default class Projects{
         this.addListener({
             element: description as HTMLElement,
             type: 'animationend' ,
-            referenceFunction: this.descriptionAnimEnded.bind(this) 
+            referenceFunction: this.descriptionAnimEnded 
          });
-        description?.addEventListener('animationend', this.descriptionAnimEnded.bind(this));
+        description?.addEventListener('animationend', this.descriptionAnimEnded);
     }
     setActiveProject(){
         this.projects.forEach(project=>project.classList.remove('active'));
         this.activeProject = this.projects[this.current];
-        console.log(this.activeProject);
         this.activeProject.classList.add('active');
     }
-    move=(e:MouseEvent)=>{
+    move = (e:MouseEvent)=>{
         const ax = -(window.innerWidth/2- e.pageX)/20;
         const ay = (window.innerHeight/2- e.pageY)/10;
         this.activeProject!.style.transform = "rotateY("+ax+"deg) rotateX("+ay+"deg)"
     }
-    descriptionAnimEnded(){
+    descriptionAnimEnded = ()=>{
         const color = getProminentColor(this.activeProject!.querySelector('img')!);
         this.body.style.setProperty('--background-color',`rgb(${color.r},${color.g},${color.b})`);
 
