@@ -9,10 +9,14 @@ export default class Projects {
         this.projectSwitcher = (e) => {
             const targetClass = e.target.classList[0];
             if (targetClass === 'next') {
-                this.current += 1;
+                if (this.current < this.projects.length) {
+                    this.current += 1;
+                }
             }
             else {
-                this.current -= 1;
+                if (this.current > 0) {
+                    this.current -= 1;
+                }
             }
         };
         this.descriptionAnimEnded = () => {
