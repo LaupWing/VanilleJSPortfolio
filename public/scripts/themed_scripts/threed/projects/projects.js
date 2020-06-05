@@ -6,6 +6,16 @@ export default class Projects {
             const ay = (window.innerHeight / 2 - e.pageY) / 10;
             this.activeProject.style.transform = "rotateY(" + ax + "deg) rotateX(" + ay + "deg)";
         };
+        this.projectAnimEnded = (e) => {
+            const target = e.target;
+            if (target.classList.contains('project')) {
+                target.classList.remove('active');
+                target.classList.remove('dissappear');
+                target.removeAttribute('style');
+                this.removeListener(target.querySelector('.project-info p'));
+                this.removeListener(document);
+            }
+        };
         this.projectSwitcher = (e) => {
             const targetClass = e.target.classList[0];
             this.projects[this.current].classList.add('dissappear');
@@ -46,6 +56,7 @@ export default class Projects {
             referenceFunction: this.descriptionAnimEnded
         });
         this.buttonEvents();
+        this.projectAnimEndedEvents();
     }
     setActiveProject() {
         this.projects.forEach(project => project.classList.remove('active'));
@@ -64,6 +75,23 @@ export default class Projects {
             element: nextBtn,
             type: 'click',
             referenceFunction: this.projectSwitcher
+        });
+    }
+    removeListener(el) {
+        const listenerObjs = this.listeners.filter(l => l.element === el);
+        this.listeners = this.listeners.filter(l => l.element !== el);
+        this.projectListeners = this.projectListeners.filter(l => l.element !== el);
+        listenerObjs.forEach(({ element, type, referenceFunction }) => {
+            element.removeEventListener(type, referenceFunction);
+        });
+    }
+    projectAnimEndedEvents() {
+        this.projects.forEach(project => {
+            this.addListener({
+                element: project,
+                type: 'animationend',
+                referenceFunction: this.projectAnimEnded
+            });
         });
     }
     addListener(listener) {

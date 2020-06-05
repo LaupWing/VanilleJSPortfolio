@@ -26,6 +26,7 @@ export default class Projects{
             referenceFunction: this.descriptionAnimEnded 
          });
          this.buttonEvents();
+         this.projectAnimEndedEvents();
     }
     setActiveProject(){
         this.projects.forEach(project=>project.classList.remove('active'));
@@ -51,6 +52,34 @@ export default class Projects{
             type: 'click',
             referenceFunction: this.projectSwitcher
         });
+    }
+    projectAnimEnded=(e:AnimationEvent)=>{
+        const target = <HTMLElement>e.target 
+        if(target.classList.contains('project')){
+            target.classList.remove('active');
+            target.classList.remove('dissappear');
+            target.removeAttribute('style');
+            this.removeListener(target.querySelector('.project-info p') as HTMLElement);
+            this.removeListener(document as Document);
+        }
+    }
+    removeListener(el:HTMLElement|Document){
+        const listenerObjs = this.listeners.filter(l=>l.element===el);
+        this.listeners = this.listeners.filter(l=>l.element!==el);
+        this.projectListeners = this.projectListeners.filter(l=>l.element!==el);
+        
+        listenerObjs.forEach(({element, type, referenceFunction})=>{
+            element.removeEventListener(type, referenceFunction);
+        });
+    }
+    projectAnimEndedEvents(){
+        this.projects.forEach(project=>{
+            this.addListener({
+                element: project,
+                type: 'animationend',
+                referenceFunction: this.projectAnimEnded
+            })
+        })
     }
     projectSwitcher = (e:MouseEvent)=>{
         const targetClass = (<HTMLButtonElement>e.target).classList[0];
