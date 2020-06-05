@@ -18,6 +18,7 @@ export default class Projects {
                 this.removeListener(document);
                 this.setActiveProject();
                 this.descriptionAnimEndedEvent();
+                this.disableButtons();
             }
         };
         this.projectSwitcher = (e) => {
@@ -58,6 +59,7 @@ export default class Projects {
         this.descriptionAnimEndedEvent();
         this.buttonEvents();
         this.projectAnimEndedEvents();
+        this.disableButtons();
     }
     setActiveProject() {
         this.projects.forEach(project => project.classList.remove('active'));
@@ -94,6 +96,18 @@ export default class Projects {
                 referenceFunction: this.projectAnimEnded
             });
         });
+    }
+    disableButtons() {
+        const prevBtn = this.body.querySelector('button.prev');
+        const nextBtn = this.body.querySelector('button.next');
+        prevBtn.classList.remove('disabled');
+        nextBtn.classList.remove('disabled');
+        if (this.current === 0) {
+            prevBtn.classList.add('disabled');
+        }
+        if (this.current === (this.projects.length - 1)) {
+            nextBtn.classList.add('disabled');
+        }
     }
     descriptionAnimEndedEvent() {
         const description = this.activeProject.querySelector('.project-info p');

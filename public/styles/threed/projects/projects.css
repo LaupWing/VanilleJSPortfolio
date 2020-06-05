@@ -111,3 +111,9 @@
     color: var(--background-color);
     background: var(--highlight-color);
 }
+#threed .buttons button.disabled{
+    background: var(--highlight-color);
+    opacity: .4;
+    color: var(--background-color);
+    pointer-events: none;
+}
