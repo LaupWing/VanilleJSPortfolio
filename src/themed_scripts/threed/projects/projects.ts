@@ -1,4 +1,5 @@
 import getProminentColor from '../../../utils/getProminentColor.js';
+import invertColor from '../../../utils/invertColor.js';
 import {isListener} from '../../../interfaces/interfaces.js';
 
 export default class Projects{
@@ -104,7 +105,10 @@ export default class Projects{
     }
     descriptionAnimEnded = ()=>{
         const color = getProminentColor(this.activeProject!.querySelector('img')!);
+        const invertedColor = invertColor(color);
         this.body.style.setProperty('--background-color',`rgb(${color.r},${color.g},${color.b})`);
+        this.body.style.setProperty('--highlight-color',invertedColor);
+
 
         this.addListener({
            element: document,
