@@ -19,14 +19,9 @@ export default class Projects{
     }
     init(){
         this.setActiveProject();
-        const description = this.activeProject!.querySelector('.project-info p');
-        this.addListener({
-            element: description as HTMLElement,
-            type: 'animationend' ,
-            referenceFunction: this.descriptionAnimEnded 
-         });
-         this.buttonEvents();
-         this.projectAnimEndedEvents();
+        this.descriptionAnimEndedEvent();
+        this.buttonEvents();
+        this.projectAnimEndedEvents();
     }
     setActiveProject(){
         this.projects.forEach(project=>project.classList.remove('active'));
@@ -59,8 +54,13 @@ export default class Projects{
             target.classList.remove('active');
             target.classList.remove('dissappear');
             target.removeAttribute('style');
-            this.removeListener(target.querySelector('.project-info p') as HTMLElement);
+            const description = target.querySelector('.project-info p');
+
+            this.removeListener(description as HTMLElement);
             this.removeListener(document as Document);
+
+            this.setActiveProject();
+            this.descriptionAnimEndedEvent();
         }
     }
     removeListener(el:HTMLElement|Document){
@@ -93,6 +93,14 @@ export default class Projects{
                 this.current -= 1;
             }
         }
+    }
+    descriptionAnimEndedEvent(){
+        const description = this.activeProject!.querySelector('.project-info p');
+        this.addListener({
+            element: description as HTMLElement,
+            type: 'animationend' ,
+            referenceFunction: this.descriptionAnimEnded 
+         });
     }
     descriptionAnimEnded = ()=>{
         const color = getProminentColor(this.activeProject!.querySelector('img')!);

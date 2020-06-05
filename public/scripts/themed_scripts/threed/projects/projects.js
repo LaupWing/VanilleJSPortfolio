@@ -12,8 +12,11 @@ export default class Projects {
                 target.classList.remove('active');
                 target.classList.remove('dissappear');
                 target.removeAttribute('style');
-                this.removeListener(target.querySelector('.project-info p'));
+                const description = target.querySelector('.project-info p');
+                this.removeListener(description);
                 this.removeListener(document);
+                this.setActiveProject();
+                this.descriptionAnimEndedEvent();
             }
         };
         this.projectSwitcher = (e) => {
@@ -49,12 +52,7 @@ export default class Projects {
     }
     init() {
         this.setActiveProject();
-        const description = this.activeProject.querySelector('.project-info p');
-        this.addListener({
-            element: description,
-            type: 'animationend',
-            referenceFunction: this.descriptionAnimEnded
-        });
+        this.descriptionAnimEndedEvent();
         this.buttonEvents();
         this.projectAnimEndedEvents();
     }
@@ -92,6 +90,14 @@ export default class Projects {
                 type: 'animationend',
                 referenceFunction: this.projectAnimEnded
             });
+        });
+    }
+    descriptionAnimEndedEvent() {
+        const description = this.activeProject.querySelector('.project-info p');
+        this.addListener({
+            element: description,
+            type: 'animationend',
+            referenceFunction: this.descriptionAnimEnded
         });
     }
     addListener(listener) {
