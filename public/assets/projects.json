@@ -5,13 +5,18 @@
         "description": "A website where you can see what you have planned for each day."
     },
     {
-        "img": "./assets/images/projects/dailyPlanner.png",
-        "title": "title of img",
-        "description": "Some description"
+        "img": "./assets/images/projects/hayden.png",
+        "title": "Hayden",
+        "description": "Only HTML and CSS practice website"
     },
     {
-        "img": "./assets/images/projects/dailyPlanner.png",
-        "title": "title of img",
-        "description": "Some description"
+        "img": "./assets/images/projects/jones.png",
+        "title": "Jones",
+        "description": "Only HTML and CSS practice website"
+    },
+    {
+        "img": "./assets/images/projects/sphere.png",
+        "title": "Sphere",
+        "description": "Only HTML and CSS practice website"
     }
 ]

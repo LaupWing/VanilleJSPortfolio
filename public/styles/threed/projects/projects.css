@@ -25,6 +25,7 @@
 
 #threed .projects .project.active h3{
     animation: fromDown 1s forwards;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 #threed .projects .project.active img{
@@ -82,7 +83,7 @@
     transform: translateZ(140px);
     padding: 20px;
     background-color: var(--main-font-color);
-    color:var(--background-color);
+    color:black;
     margin-top: 20px;
     max-width: 300px;
     width: 80%;
