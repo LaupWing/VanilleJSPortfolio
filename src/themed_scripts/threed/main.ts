@@ -24,6 +24,14 @@ export default class ThreeD extends Theme{
         this.links.forEach(link=>this.setPageSwitch(link));
     }
     setPageSwitch(link:HTMLLinkElement){
-        console.log(link);
+        const switchPage = ()=>{
+            this.body.style.setProperty('--page-switch-enter', 'translateX(-100px)');
+            this.body.style.setProperty('--page-switch-exit', 'translateX(100px)');
+        }
+        this.registerAndApplyListener({
+            element:link,
+            type: 'click',
+            referenceFunction: switchPage
+        });
     }
 }

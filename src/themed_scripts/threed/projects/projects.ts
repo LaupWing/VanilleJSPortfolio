@@ -125,7 +125,6 @@ export default class Projects{
         this.body.style.setProperty('--background-color',`rgb(${color.r},${color.g},${color.b})`);
         this.body.style.setProperty('--highlight-color',invertedColor);
 
-
         this.addListener({
            element: document,
            type: 'mousemove',

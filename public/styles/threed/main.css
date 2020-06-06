@@ -5,5 +5,31 @@
     --background-color: #111111;
     --highlight-color: #F082AC;
     --main-font-color: white;
+    --page-switch-enter: translateX(100px);
+    --page-switch-exit: translateX(-100px);
     background: var(--background-color);
+}
+
+#threed .content.dissappear{
+    animation: exit 1s forwards;
+}
+#threed .content.appear{
+    animation: enter 1s forwards;
+}
+
+@keyframes exit{
+    to{
+        transform: var(--page-switch-exit);
+        opacity: 0;
+    }
+}
+@keyframes enter{
+    from{
+        transform: var(--page-switch-enter);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
