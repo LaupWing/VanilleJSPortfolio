@@ -1,5 +1,5 @@
 import Theme from '../Theme.js';
-import Projects from './Projects/Projects.js';
+import Projects from './Sections/Projects/Projects.js';
 export default class ThreeD extends Theme {
     constructor() {
         super('threed', {

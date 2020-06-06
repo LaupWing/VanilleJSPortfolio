@@ -1,6 +1,6 @@
-import getProminentColor from '../../../utils/getProminentColor.js';
-import invertColor from '../../../utils/invertColor.js';
-import {isListener} from '../../../interfaces/interfaces.js';
+import getProminentColor from '../../../../utils/getProminentColor.js';
+import invertColor from '../../../../utils/invertColor.js';
+import {isListener} from '../../../../interfaces/interfaces.js';
 
 export default class Projects{
     projects:NodeListOf<HTMLDivElement>;
