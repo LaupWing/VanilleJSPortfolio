@@ -61,22 +61,27 @@ export default class Theme implements isTheme{
                     link.classList.add('active');
                 }
             }
-            this.listeners.push({
+            this.registerAndApplyListener({
                 element: link,
                 type: 'click',
                 referenceFunction: this.handleLink
             });
-            link.addEventListener('click', this.handleLink);
         });
     }
     applyListenerContainer(){
         this.container = document.querySelector('#app .content') as HTMLDivElement;
-        this.listeners.push({
+        this.registerAndApplyListener({
             element: this.container,
             type: 'animationend',
             referenceFunction:this.handleAnimEndContainer 
         });
-
-        this.container!.addEventListener('animationend', this.handleAnimEndContainer);
+    }
+    registerAndApplyListener({element, type, referenceFunction}:isListener){
+        this.listeners.push({
+            element,
+            type,
+            referenceFunction
+        });
+        element.addEventListener(type, referenceFunction);
     }
 }

@@ -21,5 +21,9 @@ export default class ThreeD extends Theme{
         if(window.location.hash === '#projects'){
             this.currentPageScript = new Projects(this.listeners, this.body);
         }
+        this.links.forEach(link=>this.setPageSwitch(link));
+    }
+    setPageSwitch(link:HTMLLinkElement){
+        console.log(link);
     }
 }
