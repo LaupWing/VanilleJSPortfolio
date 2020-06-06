@@ -5,7 +5,7 @@
     transform-style: preserve-3d;
     align-items: center;
 }
-#threed #app h2:first-of-type{
+#threed #projects h2:first-of-type{
     display: none;
 }
 #threed .projects .project{
