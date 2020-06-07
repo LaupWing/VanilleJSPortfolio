@@ -1,12 +1,9 @@
 import getProminentColor from '../../../../utils/getProminentColor.js';
 import invertColor from '../../../../utils/invertColor.js';
-export default class Projects {
+import Sections from '../Sections.js';
+export default class Projects extends Sections {
     constructor(listeners, body) {
-        this.move = (e) => {
-            const ax = -(window.innerWidth / 2 - e.pageX) / 20;
-            const ay = (window.innerHeight / 2 - e.pageY) / 10;
-            this.activeProject.style.transform = "rotateY(" + ax + "deg) rotateX(" + ay + "deg)";
-        };
+        super(listeners, body);
         this.projectAnimEnded = (e) => {
             const target = e.target;
             if (target.classList.contains('project')) {
@@ -14,8 +11,8 @@ export default class Projects {
                 target.classList.remove('dissappear');
                 target.removeAttribute('style');
                 const description = target.querySelector('.project-info p');
-                this.removeListener(description);
-                this.removeListener(document);
+                this.removeElListener(description);
+                this.removeElListener(document);
                 this.setActiveProject();
                 this.descriptionAnimEndedEvent();
                 this.disableButtons();
@@ -48,10 +45,7 @@ export default class Projects {
         };
         this.projects = document.querySelectorAll('.project');
         this.activeProject = null;
-        this.body = body;
         this.current = 0;
-        this.projectListeners = [];
-        this.listeners = listeners;
         this.init();
     }
     init() {
@@ -65,6 +59,7 @@ export default class Projects {
         this.projects.forEach(project => project.classList.remove('active'));
         this.activeProject = this.projects[this.current];
         this.activeProject.classList.add('active');
+        this.movingContainer = this.activeProject;
     }
     buttonEvents() {
         const prevBtn = this.body.querySelector('button.prev');
@@ -78,14 +73,6 @@ export default class Projects {
             element: nextBtn,
             type: 'click',
             referenceFunction: this.projectSwitcher
-        });
-    }
-    removeListener(el) {
-        const listenerObjs = this.listeners.filter(l => l.element === el);
-        this.listeners = this.listeners.filter(l => l.element !== el);
-        this.projectListeners = this.projectListeners.filter(l => l.element !== el);
-        listenerObjs.forEach(({ element, type, referenceFunction }) => {
-            element.removeEventListener(type, referenceFunction);
         });
     }
     projectAnimEndedEvents() {
@@ -116,10 +103,5 @@ export default class Projects {
             type: 'animationend',
             referenceFunction: this.descriptionAnimEnded
         });
-    }
-    addListener(listener) {
-        listener.element.addEventListener(listener.type, listener.referenceFunction);
-        this.projectListeners.push(listener);
-        this.listeners.push(listener);
     }
 }

@@ -1,21 +1,17 @@
 import getProminentColor from '../../../../utils/getProminentColor.js';
 import invertColor from '../../../../utils/invertColor.js';
 import {isListener} from '../../../../interfaces/interfaces.js';
+import Sections from '../Sections.js';
 
-export default class Projects{
+export default class Projects extends Sections{
     projects:NodeListOf<HTMLDivElement>;
     current:number;
     activeProject:HTMLDivElement|null;
-    body:HTMLBodyElement;
-    projectListeners:isListener[];
-    listeners:isListener[];
     constructor(listeners:isListener[], body:HTMLBodyElement){
+        super(listeners, body);
         this.projects = document.querySelectorAll('.project');
         this.activeProject = null;
-        this.body=body;
         this.current = 0;
-        this.projectListeners =[];
-        this.listeners = listeners;
         this.init();
     }
     init(){
@@ -29,11 +25,7 @@ export default class Projects{
         this.projects.forEach(project=>project.classList.remove('active'));
         this.activeProject = this.projects[this.current];
         this.activeProject.classList.add('active');
-    }
-    move = (e:MouseEvent)=>{
-        const ax = -(window.innerWidth/2- e.pageX)/20;
-        const ay = (window.innerHeight/2- e.pageY)/10;
-        this.activeProject!.style.transform = "rotateY("+ax+"deg) rotateX("+ay+"deg)"
+        this.movingContainer = this.activeProject;
     }
     buttonEvents(){
         const prevBtn = this.body.querySelector('button.prev') as HTMLButtonElement;
@@ -58,22 +50,13 @@ export default class Projects{
             target.removeAttribute('style');
             const description = target.querySelector('.project-info p');
 
-            this.removeListener(description as HTMLElement);
-            this.removeListener(document as Document);
+            this.removeElListener(description as HTMLElement);
+            this.removeElListener(document as Document);
 
             this.setActiveProject();
             this.descriptionAnimEndedEvent();
             this.disableButtons();
         }
-    }
-    removeListener(el:HTMLElement|Document){
-        const listenerObjs = this.listeners.filter(l=>l.element===el);
-        this.listeners = this.listeners.filter(l=>l.element!==el);
-        this.projectListeners = this.projectListeners.filter(l=>l.element!==el);
-        
-        listenerObjs.forEach(({element, type, referenceFunction})=>{
-            element.removeEventListener(type, referenceFunction);
-        });
     }
     projectAnimEndedEvents(){
         this.projects.forEach(project=>{
@@ -130,10 +113,5 @@ export default class Projects{
            type: 'mousemove',
            referenceFunction: this.move
         });
-    }
-    addListener(listener:isListener){
-        listener.element.addEventListener(listener.type, listener.referenceFunction);
-        this.projectListeners.push(listener);
-        this.listeners.push(listener);
     }
 }

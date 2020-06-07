@@ -23,4 +23,12 @@ export default class Section {
         this.body.style.setProperty('--background-color', `rgb(${color.r},${color.g},${color.b})`);
         this.body.style.setProperty('--highlight-color', invertedColor);
     }
+    removeElListener(el) {
+        const listenerObjs = this.listeners.filter(l => l.element === el);
+        this.listeners = this.listeners.filter(l => l.element !== el);
+        this.localListeners = this.localListeners.filter(l => l.element !== el);
+        listenerObjs.forEach(({ element, type, referenceFunction }) => {
+            element.removeEventListener(type, referenceFunction);
+        });
+    }
 }
