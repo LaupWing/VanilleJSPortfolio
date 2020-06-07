@@ -6,19 +6,27 @@ export default class Section{
     body:HTMLBodyElement;
     localListeners:isListener[];
     listeners:isListener[];
-    getProminentColor:Function;
-    invertColor:Function;
+    movingContainer:HTMLDivElement|null;
     constructor(listeners:isListener[], body:HTMLBodyElement){
         this.body=body;
-        this.localListeners =[];
+        this.localListeners = [];
         this.listeners = listeners;
-        this.getProminentColor = getProminentColor;
-        this.invertColor = invertColor;
+        this.movingContainer = null;
     }
     addListener(listener:isListener){
         listener.element.addEventListener(listener.type, listener.referenceFunction);
         this.localListeners.push(listener);
         this.listeners.push(listener);
     }
-    
+    move = (e:MouseEvent)=>{
+        const ax = -(window.innerWidth/2- e.pageX)/20;
+        const ay = (window.innerHeight/2- e.pageY)/10;
+        this.movingContainer!.style.transform = "rotateY("+ax+"deg) rotateX("+ay+"deg)"
+    }
+    setCssVar(){
+        const color = getProminentColor(this.movingContainer!.querySelector('img')!);
+        const invertedColor = invertColor(color);
+        this.body.style.setProperty('--background-color',`rgb(${color.r},${color.g},${color.b})`);
+        this.body.style.setProperty('--highlight-color',invertedColor);
+    }
 }
