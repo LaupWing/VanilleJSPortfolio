@@ -1,5 +1,6 @@
 import Theme from '../Theme.js';
 import Projects from './Sections/Projects/Projects.js';
+import Home from './Sections/Home/Home.js';
 import {isSection} from './Sections/Sections';
 
 export default class ThreeD extends Theme{
@@ -24,16 +25,20 @@ export default class ThreeD extends Theme{
     pageMethods(){
         console.log('Setting page methods');
         this.removeLocalListeners();
+        console.log(window.location.hash);
+        if(window.location.hash === ''){
+            this.currentPageScript = new Home(this.listeners, this.body);
+        }
         if(window.location.hash === '#projects'){
             this.currentPageScript = new Projects(this.listeners, this.body);
         }
     }
     removeLocalListeners(){
         if(this.currentPageScript){
-            console.log(this.currentPageScript.localListeners);
-            console.log(this.listeners);
-            const exists = this.listeners.filter(value => this.currentPageScript!.localListeners.includes(value));
-            console.log(exists)
+            const {localListeners} = this.currentPageScript;
+            localListeners.forEach(({element, type, referenceFunction})=>element.removeEventListener(type, referenceFunction));
+            this.listeners = this.listeners.filter(value => !localListeners.includes(value));
+            this.currentPageScript.localListeners = [];
         }
 
     }
