@@ -2,7 +2,9 @@
     display: grid;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr;
-    margin-top: 15vh;
+    margin-top: 20vh;
+    transform-style: preserve-3d;
+    transition: .1s;
 }
 #threed #home img.home{
     grid-row: 1/3;
@@ -14,6 +16,7 @@
     grid-column: 1;
     grid-row: 1;
     justify-self: center;
+    transform: translateZ(60px);
     z-index: 100;
     align-self: center;
 }
@@ -22,4 +25,12 @@
     grid-row: 2;
     width: 50%;
     justify-self: center;
+    transform: translateZ(140px);
+    border: solid 1px var(--highlight-color);
+    color: var(--background-color);
+    padding: 10px;
+    background-color: var(--main-font-color);
+}
+#threed #home .description p:first-of-type{
+    margin-bottom: 15px;
 }
