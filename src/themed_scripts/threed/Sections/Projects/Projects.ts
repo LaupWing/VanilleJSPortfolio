@@ -1,5 +1,3 @@
-import getProminentColor from '../../../../utils/getProminentColor.js';
-import invertColor from '../../../../utils/invertColor.js';
 import {isListener} from '../../../../interfaces/interfaces.js';
 import Sections from '../Sections.js';
 
@@ -103,10 +101,7 @@ export default class Projects extends Sections{
          });
     }
     descriptionAnimEnded = ()=>{
-        const color = getProminentColor(this.activeProject!.querySelector('img')!);
-        const invertedColor = invertColor(color);
-        this.body.style.setProperty('--background-color',`rgb(${color.r},${color.g},${color.b})`);
-        this.body.style.setProperty('--highlight-color',invertedColor);
+        this.setCssVar();
 
         this.addListener({
            element: document,

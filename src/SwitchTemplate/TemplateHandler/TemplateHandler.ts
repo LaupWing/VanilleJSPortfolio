@@ -34,10 +34,8 @@ export default class TemplateHandler{
         }
     }
     pageRelatedMethods(){
-        if(window.location.hash === '#projects'){
-            if(this.templateObj?.projects){
-                this.templateObj.projects();
-            }
+        if(this.templateObj?.pageMethods){
+            this.templateObj.pageMethods();
         }
     }
     resetAllContentStyling(){

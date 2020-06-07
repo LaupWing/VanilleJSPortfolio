@@ -19,7 +19,7 @@ export interface isTemplate {
     applyListenerContainer: Function
     toggleLinks: Function
     handleLink: Function
-    projects?: Function
+    pageMethods?: Function
     listeners: isListener[]
 }
 
