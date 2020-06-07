@@ -28,7 +28,9 @@ function init() {
         if (window.location.hash === '#projects') {
             renderProjects();
         }
-        switchTemplate.templateHandler.pageRelatedMethods();
+        setTimeout(() => {
+            switchTemplate.templateHandler.pageRelatedMethods();
+        }, 10);
     });
 }
 window.addEventListener('load', init);

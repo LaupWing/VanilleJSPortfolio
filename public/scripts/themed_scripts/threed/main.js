@@ -16,9 +16,7 @@ export default class ThreeD extends Theme {
         this.links.forEach(link => this.setPageSwitch(link));
     }
     pageMethods() {
-        console.log('Setting page methods');
         this.removeLocalListeners();
-        console.log(window.location.hash);
         if (window.location.hash === '') {
             this.currentPageScript = new Home(this.listeners, this.body);
         }
