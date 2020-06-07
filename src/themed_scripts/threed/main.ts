@@ -18,11 +18,14 @@ export default class ThreeD extends Theme{
         this.currentPageScript = null;
     }
     init(){
-        // this.pageMethods();
         this.links.forEach(link=>this.setPageSwitch(link));
     }
     pageMethods(){
         console.log('Setting page methods');
+        if(this.currentPageScript){
+            console.log(this.currentPageScript.localListeners);
+        }
+        console.log(this);
         if(window.location.hash === '#projects'){
             this.currentPageScript = new Projects(this.listeners, this.body);
         }
