@@ -16,13 +16,17 @@ export default class ThreeD extends Theme {
     }
     pageMethods() {
         console.log('Setting page methods');
-        console.log(this.currentPageScript);
-        if (this.currentPageScript) {
-            console.log(this.currentPageScript.localListeners);
-        }
-        console.log(this);
+        this.removeLocalListeners();
         if (window.location.hash === '#projects') {
             this.currentPageScript = new Projects(this.listeners, this.body);
+        }
+    }
+    removeLocalListeners() {
+        if (this.currentPageScript) {
+            console.log(this.currentPageScript.localListeners);
+            console.log(this.listeners);
+            const exists = this.listeners.filter(value => this.currentPageScript.localListeners.includes(value));
+            console.log(exists);
         }
     }
     setPageSwitch(link) {
