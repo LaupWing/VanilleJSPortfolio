@@ -1,9 +1,10 @@
 import Theme from '../Theme.js';
 import Projects from './Sections/Projects/Projects.js';
+import {isSection} from './Sections/Sections';
 
 export default class ThreeD extends Theme{
     body: HTMLBodyElement;
-    currentPageScript: Object|null;
+    currentPageScript: isSection|null;
     constructor(){
         super(
             'threed',
@@ -22,6 +23,7 @@ export default class ThreeD extends Theme{
     }
     pageMethods(){
         console.log('Setting page methods');
+        console.log(this.currentPageScript);
         if(this.currentPageScript){
             console.log(this.currentPageScript.localListeners);
         }

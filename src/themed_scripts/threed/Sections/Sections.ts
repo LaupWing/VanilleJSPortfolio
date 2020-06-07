@@ -2,7 +2,17 @@ import {isListener} from '../../../interfaces/interfaces.js';
 import getProminentColor from '../../../utils/getProminentColor.js';
 import invertColor from '../../../utils/invertColor.js';
 
-export default class Section{
+export interface isSection{
+    body:HTMLBodyElement;
+    localListeners:isListener[];
+    listeners:isListener[];
+    movingContainer:HTMLDivElement|null;
+    addListener(listener:isListener):void;
+    move(e:MouseEvent):void;
+    setCssVar():void;
+    removeElListener(el:HTMLElement|Document):void;
+}
+export default class Section implements isSection{
     body:HTMLBodyElement;
     localListeners:isListener[];
     listeners:isListener[];
