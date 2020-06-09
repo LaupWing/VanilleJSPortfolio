@@ -31,7 +31,7 @@ export default class Section implements isSection{
     move = (e:MouseEvent)=>{
         const ax = -(window.innerWidth/2- e.pageX)/20;
         const ay = (window.innerHeight/2- e.pageY)/10;
-        this.movingContainer!.style.transform = "rotateY("+ax+"deg) rotateX("+ay+"deg)"
+        this.movingContainer!.style.transform = "rotateY("+ax+"deg) rotateX("+ay+"deg)";
     }
     setCssVar(){
         const color = getProminentColor(this.movingContainer!.querySelector('img')!);

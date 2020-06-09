@@ -34,6 +34,10 @@ export default class ThreeD extends Theme {
     }
     setPageSwitch(link) {
         const switchPage = () => {
+            const hashes = ["#projects", "#about", "#contact"];
+            const to = link.href === "#" ? 0 : Array.from(this.links).indexOf(link);
+            const from = window.location.hash === '' ? 0 : hashes.indexOf(window.location.hash);
+            console.log({ to, from });
             this.body.style.setProperty('--page-switch-enter', 'translateX(-100px)');
             this.body.style.setProperty('--page-switch-exit', 'translateX(100px)');
         };
