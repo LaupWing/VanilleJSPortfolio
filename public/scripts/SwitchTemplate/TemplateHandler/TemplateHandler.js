@@ -37,7 +37,7 @@ export default class TemplateHandler {
     }
     resetAllContentStyling() {
         var _a, _b;
-        const allElemtentsInContainer = (_a = document.querySelector('.content')) === null || _a === void 0 ? void 0 : _a.querySelectorAll("*");
+        const allElemtentsInContainer = (_a = document.querySelector('#app')) === null || _a === void 0 ? void 0 : _a.querySelectorAll("*");
         if (((_b = allElemtentsInContainer) === null || _b === void 0 ? void 0 : _b.length) > 0) {
             allElemtentsInContainer === null || allElemtentsInContainer === void 0 ? void 0 : allElemtentsInContainer.forEach(el => {
                 if (el.getAttribute('style')) {

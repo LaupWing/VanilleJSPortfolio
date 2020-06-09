@@ -39,7 +39,7 @@ export default class TemplateHandler{
         }
     }
     resetAllContentStyling(){
-        const allElemtentsInContainer = document.querySelector('.content')?.querySelectorAll("*");
+        const allElemtentsInContainer = document.querySelector('#app')?.querySelectorAll("*");
         if(allElemtentsInContainer!?.length>0){
             allElemtentsInContainer?.forEach(el=>{
                 if(el.getAttribute('style')){
