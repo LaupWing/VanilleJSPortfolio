@@ -44,12 +44,14 @@ export default class ThreeD extends Theme{
         const switchPage = ()=>{
             const hashes = ["#about","#projects", "#contact"];
             const to = link.href === "#" ? 0 : Array.from(this.links).indexOf(link);
-            const from = window.location.hash === '' ? 0 : hashes.indexOf(window.location.hash)+1;  
-            console.log(window.location.hash)
-            console.log(link.href)
-            console.log({to, from});
-            this.body.style.setProperty('--page-switch-enter', 'translateX(-100px)');
-            this.body.style.setProperty('--page-switch-exit', 'translateX(100px)');
+            const from = window.location.hash === '' ? 0 : hashes.indexOf(window.location.hash)+1;
+            if(to>from){
+                this.body.style.setProperty('--page-switch-enter', 'translateX(100px)');
+                this.body.style.setProperty('--page-switch-exit', 'translateX(-100px)');
+            }else{
+                this.body.style.setProperty('--page-switch-enter', 'translateX(-100px)');
+                this.body.style.setProperty('--page-switch-exit', 'translateX(100px)');
+            }
         }
         this.registerAndApplyListener({
             element:link,
