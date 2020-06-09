@@ -32,11 +32,14 @@ export default class ThreeD extends Theme{
         }
     }
     removeLocalListeners(){
+        console.log(this.listeners);
         if(this.currentPageScript){
             const {localListeners} = this.currentPageScript;
             localListeners.forEach(({element, type, referenceFunction})=>element.removeEventListener(type, referenceFunction));
             this.listeners = this.listeners.filter(value => !localListeners.includes(value));
             this.currentPageScript.localListeners = [];
+            // console.log(localListeners);
+            console.log(this.listeners);
         }
 
     }

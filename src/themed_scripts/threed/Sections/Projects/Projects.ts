@@ -41,7 +41,7 @@ export default class Projects extends Sections{
         });
     }
     projectAnimEnded=(e:AnimationEvent)=>{
-        const target = <HTMLElement>e.target 
+        const target = <HTMLElement>e.target;
         if(target.classList.contains('project')){
             target.classList.remove('active');
             target.classList.remove('dissappear');
