@@ -21,9 +21,6 @@
     margin-right: 10vw;
     transition: .5s;
 }
-#movie nav ul li:hover{
-    letter-spacing: 1vw;
-}
 
 #movie #logo{
     margin-top: 2vh;
