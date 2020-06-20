@@ -16,15 +16,29 @@
 }
 
 #movie nav ul li{
-    font-size: 10vh;
+    font-size: 8vh;
     text-transform: uppercase;
     margin-right: 10vw;
     transition: .5s;
+    position: relative;
+}
+#movie nav ul li::after{
+    content: '';
+    width: 4vw;
+    position: absolute;
+    height: 5px;
+    transform: translateY(-50%) translateX(3vw);
+    top: 50%;
+    background-color: var( --highlight-color);
+}
+#movie nav ul li:last-of-type:after{
+    content: '';
+    width: 0;
 }
 
 #movie nav ul li.active{
     letter-spacing: 1vw;
-    transform: scale(1.1);
+    font-size: 9vh;
 }
 
 #movie #logo{
