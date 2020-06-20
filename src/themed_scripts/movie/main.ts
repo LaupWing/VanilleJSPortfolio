@@ -26,6 +26,6 @@ export default class Movie extends Theme{
                 type: 'mouseover',
                 referenceFunction:navScroll 
             });
-        })
+        });
     }
 }
