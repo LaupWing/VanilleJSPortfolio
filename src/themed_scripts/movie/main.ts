@@ -2,6 +2,7 @@ import Theme from '../Theme.js';
 
 export default class ThreeD extends Theme{
     body: HTMLBodyElement;
+    menu: Boolean;
     constructor(){
         super(
             'threed',
@@ -12,5 +13,6 @@ export default class ThreeD extends Theme{
             }
         );
         this.body = document.getElementById('threed') as HTMLBodyElement;
+        this.menu = false;
     }
 }

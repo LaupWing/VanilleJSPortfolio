@@ -7,5 +7,6 @@ export default class ThreeD extends Theme {
             '--main-font-color': 'white'
         });
         this.body = document.getElementById('threed');
+        this.menu = false;
     }
 }
