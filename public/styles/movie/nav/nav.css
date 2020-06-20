@@ -11,7 +11,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 20vh;
-    transition: 1s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: 1s cubic-bezier(0.25, 0.1, 0.25, 1) transform;
     align-self: flex-start;
 }
 
@@ -19,8 +19,9 @@
     font-size: 8vh;
     text-transform: uppercase;
     margin-right: 10vw;
-    transition: .5s;
+    transition: .5s all;
     position: relative;
+    color: var( --highlight-color);
 }
 #movie nav ul li::after{
     content: '';
