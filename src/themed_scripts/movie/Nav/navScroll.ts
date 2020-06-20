@@ -28,16 +28,18 @@ export default function navScroll(e:MouseEvent){
     const left = initialCoords.find(x=>x.element === li)!.left;
     nav.style.transform = `translateX(${((viewWidth/2)-(width/2)) - left}px)`;
     const ul = document.querySelector('nav ul') as HTMLUListElement;
-    const applyLiStyling = (e:Event)=>{
+    const applyLiStyling = ()=>{
         Array
             .from(document.querySelectorAll('nav li'))
             .forEach(x=>x.classList.remove('active'));
         li.classList.add('active');
+        changeCssVars(li);
         ul.removeEventListener('transitionend', applyLiStyling);
     }
     ul.addEventListener('transitionend', applyLiStyling);
 }
 
-function changeCssVars(){
-
+function changeCssVars(li:HTMLLIElement){
+    const lis = Array.from(document.querySelectorAll('nav li'));
+    console.log(lis.indexOf(li));
 }
