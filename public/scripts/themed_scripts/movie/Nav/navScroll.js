@@ -1,3 +1,4 @@
 export default function navScroll(e) {
-    console.log(e);
+    const target = e.target;
+    console.log(target.offsetWidth);
 }

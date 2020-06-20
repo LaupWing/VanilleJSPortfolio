@@ -1,3 +1,4 @@
 export default function navScroll(e:Event){
-    console.log(e);
+    const target = e.target as HTMLElement;
+    console.log(target.offsetWidth)
 }
