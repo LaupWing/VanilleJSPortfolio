@@ -1,0 +1,15 @@
+@import url('./nav/nav.css');
+
+#movie{
+    background-color: var(--background-color);
+    overflow: hidden;
+}
+
+#movie .content{
+    display: none;
+}
+
+#movie main{
+    max-width: 100vw;
+    width: auto;
+}
