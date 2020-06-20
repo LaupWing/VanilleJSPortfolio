@@ -32,6 +32,7 @@ export default class Projects extends Sections {
         };
         this.descriptionAnimEnded = () => {
             this.setCssVar();
+            console.log('adding moving');
             this.addListener({
                 element: document,
                 type: 'mousemove',
