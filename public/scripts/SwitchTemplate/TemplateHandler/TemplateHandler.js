@@ -1,5 +1,6 @@
 import Clean from "../../themed_scripts/clean/main.js";
 import ThreeD from "../../themed_scripts/threed/main.js";
+import Movie from "../../themed_scripts/movie/main.js";
 export default class TemplateHandler {
     constructor(active) {
         this.active = active;
@@ -14,8 +15,11 @@ export default class TemplateHandler {
         if (this.active === 'clean') {
             this.templateObj = new Clean();
         }
-        else {
+        else if (this.active === 'threed') {
             this.templateObj = new ThreeD();
+        }
+        else if (this.active === 'movie') {
+            this.templateObj = new Movie();
         }
         if (!this.intial) {
             this.templateObj.applyListenerContainer();

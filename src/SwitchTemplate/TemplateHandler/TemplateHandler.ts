@@ -1,5 +1,6 @@
 import Clean from "../../themed_scripts/clean/main.js";
 import ThreeD from "../../themed_scripts/threed/main.js";
+import Movie from "../../themed_scripts/movie/main.js";
 import {isTemplate} from '../../interfaces/interfaces';
 
 export default class TemplateHandler{
@@ -18,11 +19,13 @@ export default class TemplateHandler{
         console.log(this.active)
         if(this.active === 'clean'){
             this.templateObj = new Clean();
-        }else{
+        }else if(this.active === 'threed'){
             this.templateObj = new ThreeD();
+        }else if(this.active === 'movie'){
+            this.templateObj = new Movie();
         }
         if(!this.intial){
-            this.templateObj.applyListenerContainer();
+            this.templateObj!.applyListenerContainer();
             this.pageRelatedMethods();
         }
         this.intial = false;
