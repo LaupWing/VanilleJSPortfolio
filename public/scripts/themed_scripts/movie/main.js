@@ -7,16 +7,18 @@ export default class Movie extends Theme {
             '--highlight-color': '#A3AA97',
             '--main-font-color': '#A3AA97'
         });
-        this.nav = document.querySelector('nav ul');
+        this.lis = document.querySelectorAll('nav ul li');
         this.body = document.getElementById('threed');
         this.menu = false;
         this.init();
     }
     init() {
-        this.registerAndApplyListener({
-            element: this.nav,
-            type: 'mousemove',
-            referenceFunction: navScroll
+        this.lis.forEach(li => {
+            this.registerAndApplyListener({
+                element: li,
+                type: 'mouseover',
+                referenceFunction: navScroll
+            });
         });
     }
 }
