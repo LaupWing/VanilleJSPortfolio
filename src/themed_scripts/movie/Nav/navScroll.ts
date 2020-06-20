@@ -1,3 +1,5 @@
+import colorSchemes from '../colorSchemes/colorSchemes.js';
+
 let initialCoords:null|coords[]= null;
 interface coords{
     element: HTMLElement,
@@ -41,5 +43,9 @@ export default function navScroll(e:MouseEvent){
 
 function changeCssVars(li:HTMLLIElement){
     const lis = Array.from(document.querySelectorAll('nav li'));
-    console.log(lis.indexOf(li));
+    const scheme = colorSchemes[lis.indexOf(li)]
+    const container = document.getElementById('movie');
+    container?.style.setProperty('--highlight-color', scheme['--highlight-color']);
+    container?.style.setProperty('--background-color', scheme['--background-color']);
+    container?.style.setProperty('--main-font-color', scheme['--main-font-color']);
 }
