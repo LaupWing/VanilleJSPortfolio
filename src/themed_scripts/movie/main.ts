@@ -1,8 +1,10 @@
 import Theme from '../Theme.js';
+import navScroll from './Nav/navScroll.js'
 
 export default class Movie extends Theme{
     body: HTMLBodyElement;
     menu: Boolean;
+    nav: HTMLUListElement;
     constructor(){
         super(
             'movie',
@@ -12,11 +14,16 @@ export default class Movie extends Theme{
                 '--main-font-color': '#A3AA97'
             }
         );
+        this.nav = document.querySelector('nav ul') as HTMLUListElement;
         this.body = document.getElementById('threed') as HTMLBodyElement;
         this.menu = false;
         this.init();
     }
     init(){
-        console.log(this);
+        this.registerAndApplyListener({
+            element: this.nav,
+            type: 'mousemove',
+            referenceFunction:navScroll 
+        });
     }
 }
