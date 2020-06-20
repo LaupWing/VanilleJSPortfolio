@@ -16,7 +16,6 @@ export default class TemplateHandler{
     setTemplate(){
         this.removeListeners();
         this.resetAllContentStyling();
-        console.log(this.active)
         if(this.active === 'clean'){
             this.templateObj = new Clean();
         }else if(this.active === 'threed'){

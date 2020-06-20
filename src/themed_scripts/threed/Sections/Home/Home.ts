@@ -8,7 +8,6 @@ export default class Home extends Sections{
         this.init();
     }
     init(){
-        console.log('adding moving')
         this.addListener({
            element: document,
            type: 'mousemove',
