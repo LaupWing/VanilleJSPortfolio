@@ -24,6 +24,7 @@
 
 #movie nav ul li.active{
     letter-spacing: 1vw;
+    transform: scale(1.1);
 }
 
 #movie #logo{
