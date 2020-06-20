@@ -18,7 +18,7 @@ export default class Theme implements isTheme{
     setGloblalCSSVars(globalCssVars: {[k: string]: any} = {}){
         const container = document.getElementById(this.theme);
         for(let key in globalCssVars){
-            container?.style.setProperty(key, globalCssVars[key])
+            container?.style.setProperty(key, globalCssVars[key]);
         }
     }
     toggleLinks(state:string){

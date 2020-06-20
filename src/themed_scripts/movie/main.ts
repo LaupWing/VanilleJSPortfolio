@@ -1,18 +1,22 @@
 import Theme from '../Theme.js';
 
-export default class ThreeD extends Theme{
+export default class Movie extends Theme{
     body: HTMLBodyElement;
     menu: Boolean;
     constructor(){
         super(
-            'threed',
+            'movie',
             {
-                '--background-color': '#111111',
-                '--highlight-color': '#F082AC',
-                '--main-font-color': 'white'
+                '--background-color': '#E1DCCD',
+                '--highlight-color': '#A3AA97',
+                '--main-font-color': '#A3AA97'
             }
         );
         this.body = document.getElementById('threed') as HTMLBodyElement;
         this.menu = false;
+        this.init();
+    }
+    init(){
+        console.log(this);
     }
 }
