@@ -64,15 +64,9 @@ export default class Theme implements isTheme{
                     link.classList.add('active');
                 }
             }
-            this.registerAndApplyListener({
-                element: link,
-                type: 'click',
-                referenceFunction: this.handleLink
-            });
         });
     }
     applyListenerLinks(){
-        console.log('applying listenerlinks');
         this.links.forEach(link=>{
             this.registerAndApplyListener({
                 element: link,

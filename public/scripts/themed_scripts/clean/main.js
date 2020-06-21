@@ -5,6 +5,6 @@ export default class Clean extends Theme {
             '--highlight-color': '#FF4F59',
             '--background-color': 'white',
             '--main-font-color': 'black'
-        }, false);
+        });
     }
 }
