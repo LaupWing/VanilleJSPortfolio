@@ -16,7 +16,7 @@ export default [
     },
     {
         '--background-color': '#F83B3B',
-        '--highlight-color': 'white',
+        '--highlight-color': '#512928',
         '--main-font-color': 'white'
     },
 ];

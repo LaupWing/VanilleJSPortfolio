@@ -1,6 +1,7 @@
 import colorSchemes from '../colorSchemes/colorSchemes.js';
 let initialCoords = null;
 export default function navScroll(e) {
+    var _a;
     if (!initialCoords) {
         initialCoords = Array
             .from(document.querySelectorAll('nav li'))
@@ -20,7 +21,8 @@ export default function navScroll(e) {
     const viewWidth = window.innerWidth;
     const { width } = li.getBoundingClientRect();
     const left = initialCoords.find(x => x.element === li).left;
-    nav.style.transform = `translateX(${((viewWidth / 2) - (width / 2)) - left}px)`;
+    const offset = (viewWidth / 100) * ((_a = li.textContent) === null || _a === void 0 ? void 0 : _a.trim().length) - 1;
+    nav.style.transform = `translateX(${(((viewWidth / 2) - (width / 2)) - left) - offset}px)`;
     const ul = document.querySelector('nav ul');
     const applyLiStyling = () => {
         Array

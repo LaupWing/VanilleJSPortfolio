@@ -28,7 +28,8 @@ export default function navScroll(e:MouseEvent){
     const viewWidth = window.innerWidth;
     const {width} = li.getBoundingClientRect();
     const left = initialCoords.find(x=>x.element === li)!.left;
-    nav.style.transform = `translateX(${((viewWidth/2)-(width/2)) - left}px)`;
+    const offset = (viewWidth/100) * (li.textContent?.trim().length as number)-1
+    nav.style.transform = `translateX(${(((viewWidth/2)-(width/2)) - left)-offset}px)`;
     const ul = document.querySelector('nav ul') as HTMLUListElement;
     const applyLiStyling = ()=>{
         Array
