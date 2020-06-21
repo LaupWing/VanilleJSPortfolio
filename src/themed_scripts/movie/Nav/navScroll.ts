@@ -17,11 +17,6 @@ export default function navScroll(e:MouseEvent){
                 }
             })
     }
-    
-    Array
-        .from(document.querySelectorAll('nav li'))
-        .forEach(x=>x.classList.remove('active'));
-
     const nav = document.querySelector('nav ul') as HTMLElement;
     const target = e.target as HTMLElement;
     const li = target.closest('li') as HTMLLIElement;

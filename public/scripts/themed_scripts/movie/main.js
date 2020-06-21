@@ -17,6 +17,11 @@ export default class Movie extends Theme {
                 type: 'mouseover',
                 referenceFunction: navScroll
             });
+            this.registerAndApplyListener({
+                element: li,
+                type: 'click',
+                referenceFunction: navScroll
+            });
         });
     }
 }

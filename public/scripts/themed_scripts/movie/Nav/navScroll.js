@@ -12,9 +12,6 @@ export default function navScroll(e) {
             };
         });
     }
-    Array
-        .from(document.querySelectorAll('nav li'))
-        .forEach(x => x.classList.remove('active'));
     const nav = document.querySelector('nav ul');
     const target = e.target;
     const li = target.closest('li');
