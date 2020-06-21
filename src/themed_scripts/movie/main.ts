@@ -11,7 +11,8 @@ export default class Movie extends Theme{
     constructor(){
         super(
             'movie',
-            colorSchemes[0]
+            colorSchemes[0],
+            false
         );
         this.lis = document.querySelectorAll('nav ul li') as NodeListOf <HTMLLIElement>;
         this.body = document.getElementById('threed') as HTMLBodyElement;

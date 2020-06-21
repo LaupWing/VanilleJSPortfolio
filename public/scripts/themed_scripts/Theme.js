@@ -68,6 +68,7 @@ export default class Theme {
         });
     }
     applyListenerLinks() {
+        console.log('applying listenerlinks');
         this.links.forEach(link => {
             this.registerAndApplyListener({
                 element: link,

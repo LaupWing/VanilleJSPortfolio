@@ -3,7 +3,7 @@ import navScroll from './Nav/navScroll.js';
 import colorSchemes from './colorSchemes/colorSchemes.js';
 export default class Movie extends Theme {
     constructor() {
-        super('movie', colorSchemes[0]);
+        super('movie', colorSchemes[0], false);
         this.showContent = () => {
             const container = document.querySelector('nav ul');
         };
