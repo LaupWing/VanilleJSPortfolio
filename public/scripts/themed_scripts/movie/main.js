@@ -3,11 +3,7 @@ import navScroll from './Nav/navScroll.js';
 import colorSchemes from './colorSchemes/colorSchemes.js';
 export default class Movie extends Theme {
     constructor() {
-        super('movie', {
-            '--background-color': '#E1DCCD',
-            '--highlight-color': '#A3AA97',
-            '--main-font-color': '#A3AA97'
-        });
+        super('movie', colorSchemes[0]);
         this.lis = document.querySelectorAll('nav ul li');
         this.body = document.getElementById('threed');
         this.menu = false;

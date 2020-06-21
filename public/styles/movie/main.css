@@ -1,4 +1,5 @@
 @import url('./nav/nav.css');
+@import url('./icons/icons.css');
 
 #movie{
     background-color: var(--background-color);

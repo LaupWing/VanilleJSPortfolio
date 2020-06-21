@@ -21,7 +21,7 @@
     margin-right: 10vw;
     transition: .5s all;
     position: relative;
-    color: var( --highlight-color);
+    color: var( --main-font-color);
 }
 #movie nav ul li::after{
     content: '';

@@ -1,0 +1,7 @@
+#movie .icons svg path{
+    fill: var(--main-font-color);
+}
+
+#movie .icons svg{
+    border-color: var(--main-font-color);
+}
