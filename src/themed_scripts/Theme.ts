@@ -6,13 +6,16 @@ export default class Theme implements isTheme{
     goto: string;
     listeners: isListener[];
     theme:string;
-    constructor(theme:string, globalCssVars:isGlobalCss){
+    constructor(theme:string, globalCssVars:isGlobalCss, defaultNavClick=true){
         this.links = document.querySelectorAll('nav ul a');
         this.container = document.querySelector('#app .content');
         this.goto= window.location.href;
         this.listeners = [];
         this.theme = theme;
-        this.applyListenerLinks();
+        if(defaultNavClick){
+            this.applyListenerLinks();
+        }
+        this.setActiveLink();
         this.setGloblalCSSVars(globalCssVars as isGlobalCss);
     }
     setGloblalCSSVars(globalCssVars: {[k: string]: any} = {}){
@@ -50,7 +53,7 @@ export default class Theme implements isTheme{
             window.location.href = this.goto!;
         }
     }
-    applyListenerLinks(){
+    setActiveLink(){
         this.links.forEach(link=>{
             if(window.location.hash.length === 0){
                 if(link.href === `${window.location.origin}/#`){
@@ -61,6 +64,15 @@ export default class Theme implements isTheme{
                     link.classList.add('active');
                 }
             }
+            this.registerAndApplyListener({
+                element: link,
+                type: 'click',
+                referenceFunction: this.handleLink
+            });
+        });
+    }
+    applyListenerLinks(){
+        this.links.forEach(link=>{
             this.registerAndApplyListener({
                 element: link,
                 type: 'click',

@@ -29,8 +29,11 @@ export default class Movie extends Theme{
             this.registerAndApplyListener({
                 element: li,
                 type: 'click',
-                referenceFunction:navScroll 
+                referenceFunction: this.showContent 
             });
         });
+    }
+    showContent = ()=>{
+        const container = document.querySelector('nav ul');
     }
 }

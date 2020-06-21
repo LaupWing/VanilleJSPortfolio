@@ -1,5 +1,5 @@
 export default class Theme {
-    constructor(theme, globalCssVars) {
+    constructor(theme, globalCssVars, defaultNavClick = true) {
         this.handleLink = (e) => {
             e.preventDefault();
             const clickedLink = e.target;
@@ -28,7 +28,10 @@ export default class Theme {
         this.goto = window.location.href;
         this.listeners = [];
         this.theme = theme;
-        this.applyListenerLinks();
+        if (defaultNavClick) {
+            this.applyListenerLinks();
+        }
+        this.setActiveLink();
         this.setGloblalCSSVars(globalCssVars);
     }
     setGloblalCSSVars(globalCssVars = {}) {
@@ -45,7 +48,7 @@ export default class Theme {
             this.links.forEach(link => link.classList.remove('disabled'));
         }
     }
-    applyListenerLinks() {
+    setActiveLink() {
         this.links.forEach(link => {
             if (window.location.hash.length === 0) {
                 if (link.href === `${window.location.origin}/#`) {
@@ -57,6 +60,15 @@ export default class Theme {
                     link.classList.add('active');
                 }
             }
+            this.registerAndApplyListener({
+                element: link,
+                type: 'click',
+                referenceFunction: this.handleLink
+            });
+        });
+    }
+    applyListenerLinks() {
+        this.links.forEach(link => {
             this.registerAndApplyListener({
                 element: link,
                 type: 'click',
