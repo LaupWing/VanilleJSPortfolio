@@ -36,5 +36,12 @@ export default class Movie extends Theme{
     }
     showContent = ()=>{
         const container = document.querySelector('nav ul');
+        const content = document.querySelector('.content');
+        const animEnded = ()=>{
+            content?.classList.add('appear');
+            container?.removeEventListener('animationend', animEnded);
+        }
+        container?.addEventListener('animationend', animEnded);
+        container?.classList.add('disappear');
     }
 }

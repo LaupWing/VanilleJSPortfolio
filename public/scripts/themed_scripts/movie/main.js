@@ -6,6 +6,13 @@ export default class Movie extends Theme {
         super('movie', colorSchemes[0], false);
         this.showContent = () => {
             const container = document.querySelector('nav ul');
+            const content = document.querySelector('.content');
+            const animEnded = () => {
+                content === null || content === void 0 ? void 0 : content.classList.add('appear');
+                container === null || container === void 0 ? void 0 : container.removeEventListener('animationend', animEnded);
+            };
+            container === null || container === void 0 ? void 0 : container.addEventListener('animationend', animEnded);
+            container === null || container === void 0 ? void 0 : container.classList.add('disappear');
         };
         this.lis = document.querySelectorAll('nav ul li');
         this.body = document.getElementById('threed');
