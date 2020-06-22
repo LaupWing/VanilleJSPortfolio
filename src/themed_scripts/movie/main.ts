@@ -1,11 +1,13 @@
 import Theme from '../Theme.js';
 import navScroll from './Nav/navScroll.js';
 import colorSchemes from './colorSchemes/colorSchemes.js';
+import Links from './Nav/Links.js';
+type ListElements = NodeListOf<HTMLLinkElement>; 
 
 export default class Movie extends Theme{
     body: HTMLBodyElement;
     menu: Boolean;
-    lis: NodeListOf <HTMLLIElement>;
+    lis: ListElements;
     colorsSchemes:Object[];
 
     constructor(){
@@ -14,11 +16,12 @@ export default class Movie extends Theme{
             colorSchemes[0],
             false
         );
-        this.lis = document.querySelectorAll('nav ul li') as NodeListOf <HTMLLIElement>;
+        this.lis = document.querySelectorAll('nav ul li') as ListElements;
         this.body = document.getElementById('threed') as HTMLBodyElement;
         this.menu = false;
         this.init();
         this.colorsSchemes = colorSchemes;
+        new Links(this.listeners, this.registerAndApplyListener, this.lis);
     }
     init(){
         this.lis.forEach(li=>{
@@ -27,21 +30,6 @@ export default class Movie extends Theme{
                 type: 'mouseover',
                 referenceFunction:navScroll 
             });
-            this.registerAndApplyListener({
-                element: li,
-                type: 'click',
-                referenceFunction: this.showContent 
-            });
         });
-    }
-    showContent = ()=>{
-        const container = document.querySelector('nav ul');
-        const content = document.querySelector('.content');
-        const animEnded = ()=>{
-            content?.classList.add('appear');
-            container?.removeEventListener('animationend', animEnded);
-        }
-        container?.addEventListener('animationend', animEnded);
-        container?.classList.add('disappear');
     }
 }

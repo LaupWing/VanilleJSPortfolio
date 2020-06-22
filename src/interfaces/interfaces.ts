@@ -28,3 +28,6 @@ export interface isGlobalCss{
     '--highlight-color': string,
     '--main-font-color': string
 }
+
+
+export type ListElements = NodeListOf<HTMLLinkElement>; 
