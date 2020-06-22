@@ -1,4 +1,4 @@
-import {isListener, ListElements} from '../../../interfaces/interfaces.js'
+import {isListener, ListElements} from '../../../interfaces/interfaces.js';
 
 export default class Links{
     registerAndApplyListener: Function
